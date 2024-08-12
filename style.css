@@ -138,6 +138,35 @@
     font-size: 0.8em;
 }
 
+.image-gallery {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.main-image img {
+    width: 100%; /* 큰 이미지의 너비를 부모 요소에 맞추기 */
+    max-height: 400px; /* 최대 높이 설정 */
+    object-fit: cover; /* 이미지가 잘리더라도 비율 유지 */
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.thumbnail-images {
+    margin-top: 15px;
+    display: flex;
+    justify-content: left;
+    gap: 10px;
+}
+
+.thumbnail-images img {
+    width: 10%;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+
 #work-row {
     padding-left: 135px;
     padding-right: 135px;
@@ -151,6 +180,11 @@
     transition: width 1s;
 }
 
+.work-hero2 {
+    border-radius: 10px;
+    text-align: left;
+}
+
 .work-hero:hover {
     width: 95%;
 }
@@ -159,9 +193,20 @@
     padding-top: 50px;
 }
 
+.work-des-work{
+    padding-top: 50px;
+}
+
+
+
 .work-des h1 {
     margin-top: 45px;
     font-weight: bold;
+}
+
+.work-des h1:hover {
+    color: blue;
+    cursor: pointer;
 }
 
 .work-des h2 {

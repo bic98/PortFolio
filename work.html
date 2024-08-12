@@ -47,7 +47,8 @@
         <div class="col-md-12" id="left-hero">
             <h1 class="hero-tag contact-hero  fadeInLeft">"My Creations."</h1>
             <p class="hero-des contact-des  fadeIn delay-1s"><b>Thank you for showing interest in my work!</b>
-                <br>Take a look at some of my projects I've done,
+                <br>
+                Take a look at some of my projects I've done,
                 architecture and computer science projects.
             </p>
         </div>
@@ -56,12 +57,29 @@
     <div class="animated bounceInUp delay-1s">
         <div class="row" id="work-row">
             <div class="col-md-6 col-sm-12  bounceInLeft delay-2s">
-                <center>
-                    <div class="work-hero">
-                        <img class="work-hero-img" src="assets\work\artschool.png">
+                <div class="work-hero2">
+                    <div class="image-gallery">
+                        <div class="main-image">
+                            <img id="displayed-image" src="assets\work\graduation.png" alt="Main Image">
+                        </div>
+                        <div class="thumbnail-images">
+                            <img src="assets\work\graduation.png" alt="Thumbnail 1" onclick="changeImage(this)">
+                            <img src="assets\work\graduation2.png" alt="Thumbnail 2" onclick="changeImage(this)">
+                            <img src="assets\work\graduation_model (1).jpg" alt="Thumbnail 2"
+                                 onclick="changeImage(this)">
+                            <img src="assets\work\graduation_model (2).jpg" alt="Thumbnail 2"
+                                 onclick="changeImage(this)">
+                            <img src="assets\work\graduation_model (3).jpg" alt="Thumbnail 2"
+                                 onclick="changeImage(this)">
+                        </div>
                     </div>
-
-                </center>
+                    <script>
+                        function changeImage(element) {
+                            var mainImage = document.getElementById('displayed-image');
+                            mainImage.src = element.src;
+                        }
+                    </script>
+                </div>
             </div>
             <div class="col-md-6 col-sm-12">
                 <div class="work-des ">
@@ -69,26 +87,14 @@
                     <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                         labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
                         laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                        cupidatat
                         non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
                     <div class="technologies">
                         <h1>Advising Professor</h1>
                         <span class="tech-stack">
                                 Park Changgeun
-                            </span>
-
-                    </div>
-                    <div class="technologies featured">
-                        <h1>Assistant</h1>
-                        <span class="tech-stack">
-                                Moon Seungjae
-                            </span>
-                        <span class="tech-stack">
-                                Kim Hopyeong
-                            </span>
-                        <span class="tech-stack">
-                                Choi Sungwoo
-                            </span>
+                        </span>
                     </div>
                 </div>
             </div>
