@@ -200,17 +200,24 @@
 
 
 .work-des h1 {
-    margin-top: 45px;
+    margin-top: 0px;
     font-weight: bold;
 }
 
-.work-des h1:hover {
+.work-des h3:hover {
     color: blue;
     cursor: pointer;
 }
 
 .work-des h2 {
     margin-top: 45px;
+    font-weight: bold;
+}
+
+.work-des h3 {
+    margin-top: 0px;
+    margin-bottom: 45px;
+    font-size : 3em;
     font-weight: bold;
 }
 
@@ -824,16 +831,22 @@ li span:hover:after {
 @media (min-width: 768px) and (max-width: 1024px) {
     #left-hero {
         padding-left: 80px;
+        padding-right: 80px;
         flex: 0 0 100% !important;
         max-width: 100% !important;
+
     }
 
     #work-row {
-        padding-left: 5px;
-        padding-right: 5px;
+        padding-left: 80px;
+        padding-right: 80px;
     }
 
     .work-hero {
+        width: 100%;
+    }
+
+    .work-hero2 {
         width: 100%;
     }
 
