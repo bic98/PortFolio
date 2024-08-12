@@ -22,7 +22,6 @@
     margin: 0 auto;
     width: 80%;
     background: #fff;
-    align-items: center;
     padding: 0;
     border-radius: 9px;
     padding-bottom: 15px;
@@ -37,8 +36,7 @@
     margin: 0 auto;
     width: 80%;
     background: #fff;
-    align-items: center;
-    padding: 0;
+    padding: 3px;
     border-radius: 12px;
     padding-bottom: 15px;
     box-shadow: 2px 2px 20px #00000025;
@@ -77,18 +75,41 @@
     font-weight: bold;
 }
 
+
+.work-card-hero-img {
+    display: block;
+    width: 100%;
+    padding : 5px;
+    border-radius: 12px;
+    border-bottom: none;
+    margin: 0;
+}
+
+.skill-rating {
+    display: none; /* 기본적으로 별 숨기기 */
+    text-align: center;
+    margin-top: 10px;
+}
+
+.work-hero-card-skill:hover .skill-rating {
+    display: block; /* 마우스 오버 시 별 표시 */
+}
+
 .work-hero-card-skill:hover {
-    width: 85%;
+    width: 90%;
     box-shadow: 0px 0px 20px #88888875;
     animation: zoom 1s;
 }
 
-.work-card-hero-img {
-    width: 100%;
-    display: block;
-    border-bottom: none;
-    margin: 0 auto;
+.star {
+    font-size: 24px; /* 별 크기 */
+    color: #ccc; /* 기본 별 색상 (비어있는 별) */
 }
+
+.star.filled {
+    color: #f39c12; /* 채워진 별 색상 (노란색) */
+}
+
 
 .work-double-row {
     padding-left: 120px;
@@ -139,6 +160,11 @@
 }
 
 .work-des h1 {
+    margin-top: 45px;
+    font-weight: bold;
+}
+
+.work-des h2 {
     margin-top: 45px;
     font-weight: bold;
 }
