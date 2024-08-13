@@ -214,22 +214,74 @@
     font-weight: bold;
 }
 
+
 .work-des h3 {
     margin-top: 0px;
     margin-bottom: 45px;
     font-size : 3em;
     font-weight: bold;
+    transition: transform 0.5s ease;
 }
 
 .work-des p {
     text-align: justify;
     font-weight: 100;
+    transition: transform 0.5s ease;
 }
 
 .work-hero-img {
     width: 100%;
     border-radius: 10px;
     margin-top: 45px;
+}
+
+
+.work-hero-thumbnail {
+    width: 100%;
+    border-radius: 10px;
+}
+
+
+
+
+.work-hero-video {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 45px;
+    display: none;
+    transition: width 1s;
+}
+
+.work-hero:hover .work-hero-video {
+    width: 105%;
+}
+
+
+/* Pagination styling */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.pagination a {
+    color: black;
+    padding: 16px 16px;
+    text-decoration: none;
+    font-size: 1em;
+    margin: 0 4px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination a.active {
+    background-color : black; /* 활성화된 페이지 색상 */
+    color: white;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd; /* 호버 시 배경색 */
+    color: #007bff;
 }
 
 .technologies h1 {

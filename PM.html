@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
           integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
-    <title>Work</title>
+    <title>Computational Work</title>
     <link rel="icon" type="image/x-icon" href="assets/img/my_site_logo.ico">
 </head>
 <body id="contact-body" style="overflow-x: hidden;">
@@ -36,48 +36,32 @@
         <div class="nav-items">
             <ul>
                 <li><span><a href="about.html">About</a></span></li>
-                <li><span><a href="#" style="text-decoration: line-through;">Work</a></span></li>
-                <li><span><a href="PM.html">Parametric Design</a></span></li>
+                <li><span><a href="work.html">Work</a></span></li>
+                <li><span><a href="#" style="text-decoration: line-through;">Parametric Design</a></span></li>
                 <li><span><a href="contact.html">Contact</a></span></li>
             </ul>
         </div>
     </nav>
     <div class=" fadeIn row" style="width:100vw;height:auto;animation-duration: 1.5s;">
         <div class="col-md-12" id="left-hero">
-            <h1 class="hero-tag contact-hero  fadeInLeft">"My Creations."</h1>
-            <p class="hero-des contact-des  fadeIn delay-1s"><b>Thank you for showing interest in my work!</b>
-                <br>
-                Take a look at some of my projects I've done,
-                architecture and computer science projects.
+            <h1 class="hero-tag contact-hero  fadeInLeft">Parametric Design</h1>
+            <p class="hero-des contact-des  fadeIn delay-1s">
+                I have been developing Revit add-ins and Grasshopper tools to enable faster modeling since 2021
             </p>
         </div>
     </div>
     <!--Content-->
     <div class="animated bounceInUp delay-1s">
         <div class="row" id="work-row">
+
+
             <div class="col-md-6 col-sm-12  bounceInLeft delay-2s">
-                <div class="work-hero2">
-                    <div class="image-gallery">
-                        <div class="main-image">
-                            <img id="displayed-image" src="assets\work\graduation.png" alt="Main Image">
-                        </div>
-                        <div class="thumbnail-images">
-                            <img src="assets\work\graduation.png" alt="Thumbnail 1" onclick="changeImage(this)">
-                            <img src="assets\work\graduation2.png" alt="Thumbnail 2" onclick="changeImage(this)">
-                            <img src="assets\work\graduation_model (1).jpg" alt="Thumbnail 2"
-                                 onclick="changeImage(this)">
-                            <img src="assets\work\graduation_model (2).jpg" alt="Thumbnail 2"
-                                 onclick="changeImage(this)">
-                            <img src="assets\work\graduation_model (3).jpg" alt="Thumbnail 2"
-                                 onclick="changeImage(this)">
-                        </div>
-                    </div>
-                    <script>
-                        function changeImage(element) {
-                            var mainImage = document.getElementById('displayed-image');
-                            mainImage.src = element.src;
-                        }
-                    </script>
+                <div class="work-hero">
+                    <img src="assets/work/apartment.png" alt="Thumbnail Image" class="work-hero-img">
+                    <video class="work-hero-video" controls>
+                        <source src="assets/video/autoCore.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
             </div>
             <div class="col-md-6 col-sm-12">
@@ -101,210 +85,166 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row" id="work-row">
-            <div class="col-md-12 col-sm-12">
+
+
+            <div class="col-md-6 col-sm-12  bounceInLeft delay-2s">
+                <div class="work-hero">
+                    <img src="assets/work/apartment.png" alt="Thumbnail Image" class="work-hero-img">
+                    <video class="work-hero-video" controls>
+                        <source src="assets/video/mapMaker.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
                 <div class="work-des ">
-                    <h1>Architecture Projects</h1>
-                    <p>&nbsp;The pieces listed below are works I submitted to university studio projects and competitions from
-                        my freshman year in 2018 through my senior year in 2024.
-                        They are arranged chronologically, starting from 2018.
-                        These works encapsulate my approach to architecture and the thoughts I've had while attending
-                        Kangwon National University.
-                        If you have any questions about these works, please don't hesitate to reach out through the
-                        "contact" section.
-                        I'll be more than happy to respond.</p>
-                </div>
-            </div>
-        </div>
-        <div class="row work-double-row">
-            <div class="col-md-6 col-sm-12  bounceInLeft delay-3s">
-                <div class="work-hero-card">
-                    <img class="work-card-hero-img" src="assets\work\artschool.png">
-                    <h1>2023 Fourth Year Second Semester</h1>
-                    <div id="work-text"><b>Art school</b></div>
-                </div>
-
-            </div>
-            <div class="col-md-6 col-sm-12  bounceInRight delay-3s">
-
-                <div class="work-hero-card">
-
-                    <img class="work-card-hero-img" src="assets\work\engineering.png">
-
-                    <h1>
-                        <i class="fas fa-trophy"></i>
-                        <b>2023 Engineering Industry Competition</b>
-                    </h1>
-                    <div id="work-text"><b>Automated ETFE facade</b></div>
-                </div>
-            </div>
-        </div>
-        <div class="row work-double-row" id="row-3">
-            <div class="col-md-6 col-sm-12  bounceInLeft delay-3s">
-
-                <div class="work-hero-card">
-                    <img class="work-card-hero-img" src="assets\work\remodeling.png">
-                    <h1>2023 Fourth Year First Semester</h1>
-                    <div id="work-text"><b>Remodeling</b></div>
-                </div>
-
-            </div>
-            <div class="col-md-6 col-sm-12  bounceInRight delay-3s">
-                <div class="work-hero-card">
-                    <h1>
-                        <img class="work-card-hero-img" src="assets\work\NEW FACE.png">
-                        2023 Gonggan Competition</h1>
-                    <div id="work-text"><b>NEW FACE</b></div>
-
-                </div>
-            </div>
-        </div>
-        <div class="row work-double-row" id="row-3">
-            <div class="col-md-6 col-sm-12  bounceInLeft delay-3s">
-
-                <div class="work-hero-card">
-
-                    <img class="work-card-hero-img" src="assets\work\apartment.png">
-                    <h1>2022 Third Year Second Semester</h1>
-                    <div id="work-text"><b>Apartment</b></div>
-                </div>
-
-            </div>
-
-            <div class="col-md-6 col-sm-12  bounceInRight delay-3s">
-                <div class="work-hero-card">
-                    <img class="work-card-hero-img" src="assets\work\hanokcompetiton.png">
-                    <h1>2022 Hanok Competition</h1>
-                    <div id="work-text"><b>Hee-No-Ae-Rak-Dang</b></div>
+                    <h3>Graduation Project</h3>
+                    <p>&nbsp;The project began with the question: "Can we create a new place on the Han River through a
+                        pedestrian bridge?" The aim was to integrate experiences that can occur in waterfront spaces by
+                        spatially connecting the urban space along the Dongho Bridge riverside, the riverside park, and
+                        the Riverbus dock. By combining elements such as a pedestrian bridge, a station platform, and a
+                        dock, we propose a new pedestrian bridge that offers diverse access points and utilizes the
+                        potential of the Han River to create a new leisure facility.
+                        <br><br>
+                        &nbsp;The fundamental direction of the design is to connect these various places through the
+                        Dongho Pedestrian Bridge, enhancing accessibility and proposing a new destination on the Han
+                        River.</p>
+                    <div class="technologies">
+                        <h1>Advising Professor : </h1>
+                        <span class="tech-stack"> Park Changgeun </span>
+                        <h1>Project Site : </h1>
+                        <span class="tech-stack"> Seoul Dongho Bridge </span>
+                    </div>
                 </div>
             </div>
 
-        </div>
 
-        <div class="row work-double-row" id="row-3">
-            <div class="col-md-6 col-sm-12  bounceInLeft delay-3s">
-                <div class="work-hero-card">
-                    <img class="work-card-hero-img" src="assets\work\kongkan1.png">
-                    <h1>2022 Gonggan Competition</h1>
-                    <div id="work-text"><b>HOST</b></div>
+            <div class="col-md-6 col-sm-12  bounceInLeft delay-2s">
+                <div class="work-hero">
+                    <img src="assets/work/apartment.png" alt="Thumbnail Image" class="work-hero-img">
+                    <video class="work-hero-video" controls>
+                        <source src="assets/video/autoFacade.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
             </div>
-            <div class="col-md-6 col-sm-12  bounceInRight delay-3s">
-                <div class="work-hero-card">
-                    <img class="work-card-hero-img" src="assets\work\plant.png">
-                    <h1>2022 Third Year First Semester</h1>
-                    <div id="work-text"><b>Community Service Center</b></div>
-                </div>
-            </div>
-        </div>
-        <div class="row work-double-row" id="row-3">
-            <div class="col-md-6 col-sm-12  bounceInLeft delay-3s">
-
-                <div class="work-hero-card">
-
-                    <img class="work-card-hero-img" src="assets\work\pavilion.png">
-                    <h1>2021 Second Year Second Semester</h1>
-                    <div id="work-text"><b>Pavilion</b></div>
-                </div>
-
-            </div>
-            <div class="col-md-6 col-sm-12  bounceInRight delay-3s">
-
-                <div class="work-hero-card">
-
-                    <img class="work-card-hero-img" src="assets\work\gallery.png">
-                    <h1>2021 Second Year First Semester</h1>
-                    <div id="work-text"><b>Gallery</b></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row work-double-row" id="row-3">
-            <div class="col-md-6 col-sm-12  bounceInLeft delay-3s">
-
-                <div class="work-hero-card">
-
-                    <img class="work-card-hero-img" src="assets\work\kangwon.png">
-                    <h1>
-                        <i class="fas fa-trophy"></i>
-                        2019 Kangwon Architecture Competition
-                    </h1>
-                    <div id="work-text"><b>Heterotopia</b></div>
-                </div>
-
-            </div>
-            <div class="col-md-6 col-sm-12  bounceInRight delay-3s">
-                <div class="work-hero-card">
-
-                    <img class="work-card-hero-img" src="assets\work\house.png">
-                    <h1>2019 Second Year First Semester</h1>
-                    <div id="work-text"><b>HOUSE</b></div>
-                </div>
-            </div>
-        </div>
-        <div class="row" id="work-row">
-            <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-12">
                 <div class="work-des ">
-                    <h1>Computational Projects</h1>
-                    <p>&nbsp;The activities listed below are related to computer science.
-                        In addition to studying architecture,
-                        my keen interest in computers led me to concurrently explore the field of computer science while
-                        attending university.
-                        I have a passion for solving problems using algorithms and discovering insights within big data
-                        to address various challenges.
-                        I've actively participated in related activities, taking pleasure in uncovering solutions and
-                        insights.
-                        My interest extends to integrating architecture and computer science to create more
-                        user-friendly programs,
-                        and I am particularly fond of using parametric design to develop designs that harmonize well
-                        with nature.
-                        If you have any questions about my work, please feel free to reach out through the "contact"
-                        section. I am committed to providing thoughtful and detailed responses.</p>
+                    <h3>Graduation Project</h3>
+                    <p>&nbsp;The project began with the question: "Can we create a new place on the Han River through a
+                        pedestrian bridge?" The aim was to integrate experiences that can occur in waterfront spaces by
+                        spatially connecting the urban space along the Dongho Bridge riverside, the riverside park, and
+                        the Riverbus dock. By combining elements such as a pedestrian bridge, a station platform, and a
+                        dock, we propose a new pedestrian bridge that offers diverse access points and utilizes the
+                        potential of the Han River to create a new leisure facility.
+                        <br><br>
+                        &nbsp;The fundamental direction of the design is to connect these various places through the
+                        Dongho Pedestrian Bridge, enhancing accessibility and proposing a new destination on the Han
+                        River.</p>
+                    <div class="technologies">
+                        <h1>Advising Professor : </h1>
+                        <span class="tech-stack"> Park Changgeun </span>
+                        <h1>Project Site : </h1>
+                        <span class="tech-stack"> Seoul Dongho Bridge </span>
+                    </div>
                 </div>
             </div>
+
+
+            <div class="col-md-6 col-sm-12  bounceInLeft delay-2s">
+                <div class="work-hero">
+                    <img src="assets/work/apartment.png" alt="Thumbnail Image" class="work-hero-img">
+                    <video class="work-hero-video" controls>
+                        <source src="assets/video/autoPlan.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="work-des ">
+                    <h3>Graduation Project</h3>
+                    <p>&nbsp;The project began with the question: "Can we create a new place on the Han River through a
+                        pedestrian bridge?" The aim was to integrate experiences that can occur in waterfront spaces by
+                        spatially connecting the urban space along the Dongho Bridge riverside, the riverside park, and
+                        the Riverbus dock. By combining elements such as a pedestrian bridge, a station platform, and a
+                        dock, we propose a new pedestrian bridge that offers diverse access points and utilizes the
+                        potential of the Han River to create a new leisure facility.
+                        <br><br>
+                        &nbsp;The fundamental direction of the design is to connect these various places through the
+                        Dongho Pedestrian Bridge, enhancing accessibility and proposing a new destination on the Han
+                        River.</p>
+                    <div class="technologies">
+                        <h1>Advising Professor : </h1>
+                        <span class="tech-stack"> Park Changgeun </span>
+                        <h1>Project Site : </h1>
+                        <span class="tech-stack"> Seoul Dongho Bridge </span>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-6 col-sm-12  bounceInLeft delay-2s">
+                <div class="work-hero">
+                    <img src="assets/work/apartment.png" alt="Thumbnail Image" class="work-hero-img">
+                    <video class="work-hero-video" controls>
+                        <source src="assets/video/autoPlan2.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="work-des ">
+                    <h3>Graduation Project</h3>
+                    <p>&nbsp;The project began with the question: "Can we create a new place on the Han River through a
+                        pedestrian bridge?" The aim was to integrate experiences that can occur in waterfront spaces by
+                        spatially connecting the urban space along the Dongho Bridge riverside, the riverside park, and
+                        the Riverbus dock. By combining elements such as a pedestrian bridge, a station platform, and a
+                        dock, we propose a new pedestrian bridge that offers diverse access points and utilizes the
+                        potential of the Han River to create a new leisure facility.
+                        <br><br>
+                        &nbsp;The fundamental direction of the design is to connect these various places through the
+                        Dongho Pedestrian Bridge, enhancing accessibility and proposing a new destination on the Han
+                        River.</p>
+                    <div class="technologies">
+                        <h1>Advising Professor : </h1>
+                        <span class="tech-stack"> Park Changgeun </span>
+                        <h1>Project Site : </h1>
+                        <span class="tech-stack"> Seoul Dongho Bridge </span>
+                    </div>
+                </div>
+            </div>
+            <!-- 페이지네이션 링크 -->
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const videos = document.querySelectorAll('.work-hero-video');
+                    const thumbnails = document.querySelectorAll('.work-hero-img');
+
+                    thumbnails.forEach((thumbnail, index) => {
+                        const video = videos[index];
+
+                        thumbnail.addEventListener('mouseover', function () {
+                            thumbnail.style.display = 'none'; // 이미지를 숨김
+                            video.style.display = 'block'; // 비디오를 표시
+                            video.play(); // 비디오 자동 재생
+                        });
+
+                        video.addEventListener('mouseleave', function () {
+                            video.style.display = 'none'; // 비디오를 다시 숨김
+                            thumbnail.style.display = 'block'; // 이미지를 다시 표시
+                            video.pause(); // 비디오 일시 정지
+                            video.currentTime = 0; // 비디오를 처음으로 돌림
+                        });
+                    });
+                });
+            </script>
+
+
         </div>
-        <div class="row work-double-row" id="row-3">
-            <div class="col-md-6 col-sm-12  bounceInLeft delay-3s">
-
-                <div class="work-hero-card">
-
-                    <img class="work-card-hero-img" src="assets\work\mamaker.png">
-                    <h1>2023 Generate a 3D map using the API in Rhino</h1>
-                    <div id="work-text"><b>Map Generator</b></div>
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-12  bounceInRight delay-3s">
-                <div class="work-hero-card">
-                    <img class="work-card-hero-img" src="assets\work\icpc.png">
-
-                    <h1>
-                        <i class="fas fa-trophy"></i>
-                        2022, 2021 National Programming Competition</h1>
-                    <div id="work-text"><b>ICPC</b></div>
-                </div>
-            </div>
+        <div class="pagination">
+            <a href="PM.html" class = "active">1</a>
+            <a href="PM_page2.html">2</a>
         </div>
-        <div class="row work-double-row" id="row-3">
-            <div class="col-md-6 col-sm-12  bounceInRight delay-3s">
-                <div class="work-hero-card">
-                    <img class="work-card-hero-img" src="assets\work\blueberry.png">
-
-                    <h1>
-                        <i class="fas fa-trophy"></i>
-                        2022 Chuncheon Bigdata Competition</h1>
-                    <div id="work-text"><b>Bicycle Network</b></div>
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-12  bounceInRight delay-3s">
-                <div class="work-hero-card">
-                    <img class="work-card-hero-img" src="assets\work\concrete.png">
-                    <h1>2022 Concrete Competition</h1>
-                    <div id="work-text"><b>Voronoi Candle</b></div>
-                </div>
-            </div>
-        </div>
-
     </div>
     <div class="footer-full  fadeIn delay-2s">
         <div class="social-icons">
