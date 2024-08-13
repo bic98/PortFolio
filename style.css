@@ -223,6 +223,19 @@
     transition: transform 0.5s ease;
 }
 
+.work-des h4 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size : 1.4em;
+    font-weight: bold;
+    transition: transform 0.5s ease;
+}
+
+.work-des h4:hover {
+    color: blue;
+    cursor: pointer;
+}
+
 .work-des p {
     text-align: justify;
     font-weight: 100;
@@ -291,6 +304,11 @@
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+.technologies h1:hover {
+    color: blue;
+}
+
 
 .technologies {
     display: flex;
