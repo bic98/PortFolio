@@ -1,0 +1,196 @@
+#include<bits/stdc++.h>
+#define all(v) (v).begin(), (v).end()
+#define compress(v) sort(all(v)), (v).erase(unique(all(v)), (v).end())
+#define IDX(I, x) (lower_bound(all(I), x) - I.begin())
+#define int int64_t
+#define fastio cin.tie(nullptr) -> sync_with_stdio(false)
+#define vi(v) for(auto & z : (v)) cin >> z
+#define vi1(v) for(int z = 1; z <= n; z++) cin >> v[z];
+#define no() cout << "NO" << '\n';
+#define yes() cout << "YES" << '\n';
+#define show(v) for(const auto& z : v) {cout << z << ' '; } cout << '\n';
+using namespace std;
+using pii = pair<int, int>;
+using tii = tuple<int, int, int>;
+using ll = long long;
+using pll = pair<ll, ll>;
+
+string s = {
+        "        <!--row 1-->\n"
+        "        <div class=\"row work-quadra-row\">\n"
+        "            <div class=\"col-md-3 col-sm-12  bounceInLeft delay-3s\">\n"
+        "                <div class=\"work-hero-card-idea\">\n"
+        "                    <img class=\"work-card-hero-img\" src=\"assets\\work\\artschool.png\">\n"
+        "                    <h1>2023 Fourth Year Second Semester</h1>\n"
+        "                </div>\n"
+        "            </div>\n"
+        "            <div class=\"col-md-3 col-sm-12  bounceInLeft delay-3s\">\n"
+        "                <div class=\"work-hero-card-idea\">\n"
+        "                    <img class=\"work-card-hero-img\" src=\"assets\\work\\artschool.png\">\n"
+        "                    <h1>2023 Fourth Year Second Semester</h1>\n"
+        "                </div>\n"
+        "            </div>\n"
+        "            <div class=\"col-md-3 col-sm-12  bounceInLeft delay-3s\">\n"
+        "                <div class=\"work-hero-card-idea\">\n"
+        "                    <img class=\"work-card-hero-img\" src=\"assets\\work\\artschool.png\">\n"
+        "                    <h1>2023 Fourth Year Second Semester</h1>\n"
+        "                </div>\n"
+        "            </div>\n"
+        "            <div class=\"col-md-3 col-sm-12  bounceInLeft delay-3s\">\n"
+        "                <div class=\"work-hero-card-idea\">\n"
+        "                    <img class=\"work-card-hero-img\" src=\"assets\\work\\artschool.png\">\n"
+        "                    <h1>2023 Fourth Year Second Semester</h1>\n"
+        "                </div>\n"
+        "            </div>\n"
+        "        </div>\n"
+        "\n"
+        "        <!--row 2-->\n"
+        "        <div class=\"row work-quadra-row\">\n"
+        "            <div class=\"col-md-3 col-sm-12  bounceInLeft delay-3s\">\n"
+        "                <div class=\"work-hero-card-idea\">\n"
+        "                    <img class=\"work-card-hero-img\" src=\"assets\\work\\artschool.png\">\n"
+        "                    <h1>2023 Fourth Year Second Semester</h1>\n"
+        "                </div>\n"
+        "            </div>\n"
+        "            <div class=\"col-md-3 col-sm-12  bounceInLeft delay-3s\">\n"
+        "                <div class=\"work-hero-card-idea\">\n"
+        "                    <img class=\"work-card-hero-img\" src=\"assets\\work\\artschool.png\">\n"
+        "                    <h1>2023 Fourth Year Second Semester</h1>\n"
+        "                </div>\n"
+        "            </div>\n"
+        "            <div class=\"col-md-3 col-sm-12  bounceInLeft delay-3s\">\n"
+        "                <div class=\"work-hero-card-idea\">\n"
+        "                    <img class=\"work-card-hero-img\" src=\"assets\\work\\artschool.png\">\n"
+        "                    <h1>2023 Fourth Year Second Semester</h1>\n"
+        "                </div>\n"
+        "            </div>\n"
+        "            <div class=\"col-md-3 col-sm-12  bounceInLeft delay-3s\">\n"
+        "                <div class=\"work-hero-card-idea\">\n"
+        "                    <img class=\"work-card-hero-img\" src=\"assets\\work\\artschool.png\">\n"
+        "                    <h1>2023 Fourth Year Second Semester</h1>\n"
+        "                </div>\n"
+        "            </div>\n"
+        "        </div>\n"
+        "\n"
+        "        <!--row 3-->\n"
+        "        <div class=\"row work-quadra-row\">\n"
+        "            <div class=\"col-md-3 col-sm-12  bounceInLeft delay-3s\">\n"
+        "                <div class=\"work-hero-card-idea\">\n"
+        "                    <img class=\"work-card-hero-img\" src=\"assets\\work\\artschool.png\">\n"
+        "                    <h1>2023 Fourth Year Second Semester</h1>\n"
+        "                </div>\n"
+        "            </div>\n"
+        "            <div class=\"col-md-3 col-sm-12  bounceInLeft delay-3s\">\n"
+        "                <div class=\"work-hero-card-idea\">\n"
+        "                    <img class=\"work-card-hero-img\" src=\"assets\\work\\artschool.png\">\n"
+        "                    <h1>2023 Fourth Year Second Semester</h1>\n"
+        "                </div>\n"
+        "            </div>\n"
+        "            <div class=\"col-md-3 col-sm-12  bounceInLeft delay-3s\">\n"
+        "                <div class=\"work-hero-card-idea\">\n"
+        "                    <img class=\"work-card-hero-img\" src=\"assets\\work\\artschool.png\">\n"
+        "                    <h1>2023 Fourth Year Second Semester</h1>\n"
+        "                </div>\n"
+        "            </div>\n"
+        "            <div class=\"col-md-3 col-sm-12  bounceInLeft delay-3s\">\n"
+        "                <div class=\"work-hero-card-idea\">\n"
+        "                    <img class=\"work-card-hero-img\" src=\"assets\\work\\artschool.png\">\n"
+        "                    <h1>2023 Fourth Year Second Semester</h1>\n"
+        "                </div>\n"
+        "            </div>\n"
+        "        </div>\n"
+        "\n"
+        "        <!--row 4-->\n"
+        "        <div class=\"row work-quadra-row\">\n"
+        "            <div class=\"col-md-3 col-sm-12  bounceInLeft delay-3s\">\n"
+        "                <div class=\"work-hero-card-idea\">\n"
+        "                    <img class=\"work-card-hero-img\" src=\"assets\\work\\artschool.png\">\n"
+        "                    <h1>2023 Fourth Year Second Semester</h1>\n"
+        "                </div>\n"
+        "            </div>\n"
+        "            <div class=\"col-md-3 col-sm-12  bounceInLeft delay-3s\">\n"
+        "                <div class=\"work-hero-card-idea\">\n"
+        "                    <img class=\"work-card-hero-img\" src=\"assets\\work\\artschool.png\">\n"
+        "                    <h1>2023 Fourth Year Second Semester</h1>\n"
+        "                </div>\n"
+        "            </div>\n"
+        "            <div class=\"col-md-3 col-sm-12  bounceInLeft delay-3s\">\n"
+        "                <div class=\"work-hero-card-idea\">\n"
+        "                    <img class=\"work-card-hero-img\" src=\"assets\\work\\artschool.png\">\n"
+        "                    <h1>2023 Fourth Year Second Semester</h1>\n"
+        "                </div>\n"
+        "            </div>\n"
+        "            <div class=\"col-md-3 col-sm-12  bounceInLeft delay-3s\">\n"
+        "                <div class=\"work-hero-card-idea\">\n"
+        "                    <img class=\"work-card-hero-img\" src=\"assets\\work\\artschool.png\">\n"
+        "                    <h1>2023 Fourth Year Second Semester</h1>\n"
+        "                </div>\n"
+        "            </div>\n"
+        "        </div>\n"
+        "\n"
+        "        <!--row 5-->\n"
+        "        <div class=\"row work-quadra-row\">\n"
+        "            <div class=\"col-md-3 col-sm-12  bounceInLeft delay-3s\">\n"
+        "                <div class=\"work-hero-card-idea\">\n"
+        "                    <img class=\"work-card-hero-img\" src=\"assets\\work\\artschool.png\">\n"
+        "                    <h1>2023 Fourth Year Second Semester</h1>\n"
+        "                </div>\n"
+        "            </div>\n"
+        "            <div class=\"col-md-3 col-sm-12  bounceInLeft delay-3s\">\n"
+        "                <div class=\"work-hero-card-idea\">\n"
+        "                    <img class=\"work-card-hero-img\" src=\"assets\\work\\artschool.png\">\n"
+        "                    <h1>2023 Fourth Year Second Semester</h1>\n"
+        "                </div>\n"
+        "            </div>\n"
+        "            <div class=\"col-md-3 col-sm-12  bounceInLeft delay-3s\">\n"
+        "                <div class=\"work-hero-card-idea\">\n"
+        "                    <img class=\"work-card-hero-img\" src=\"assets\\work\\artschool.png\">\n"
+        "                    <h1>2023 Fourth Year Second Semester</h1>\n"
+        "                </div>\n"
+        "            </div>\n"
+        "            <div class=\"col-md-3 col-sm-12  bounceInLeft delay-3s\">\n"
+        "                <div class=\"work-hero-card-idea\">\n"
+        "                    <img class=\"work-card-hero-img\" src=\"assets\\work\\artschool.png\">\n"
+        "                    <h1>2023 Fourth Year Second Semester</h1>\n"
+        "                </div>\n"
+        "            </div>\n"
+        "        </div>"
+};
+
+
+string findLoc(string& str, const string& k, queue<string>& Q){
+    int loc = str.find(k);
+    while(loc != string::npos && Q.size()){
+        str.replace(loc, k.size(), Q.front());
+        Q.pop();
+        loc = str.find(k, loc + 1);
+    }
+    return str;
+}
+
+int32_t main(){
+#ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+#endif
+    fastio;
+    queue<string> img;
+    int n; cin >> n;
+    cin.ignore();
+    for(int i = 0; i < n; i++){
+        string tmp;
+        getline(cin, tmp);
+        auto ext = tmp.substr(tmp.find("assets"), tmp.size());
+        ext.pop_back();
+        img.push(ext);
+    }
+    auto locImg = findLoc(s, "assets\\work\\artschool.png", img);
+    queue<string> text;
+    for(int i = 0; i < n; i++){
+        string tmp;
+        getline(cin, tmp);
+        text.push(tmp);
+    }
+    auto final = findLoc(locImg, "2023 Fourth Year Second Semester", text);
+    cout << final << '\n';
+}
