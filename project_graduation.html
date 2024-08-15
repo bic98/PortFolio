@@ -1,0 +1,159 @@
+<html>
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-159411627-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-159411627-1');
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=yes">
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <title>Work</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/my_site_logo.ico">
+</head>
+
+<body id="contact-body" style="overflow-x: hidden;">
+<div>
+    <nav class="nav-desk">
+        <div class="nav-logo">
+            <a href="index.html"><img id="logo" src="assets/img/inchanchan.png"></a>
+        </div>
+        <div class="nav-items">
+            <ul>
+                <li><span><a href="about.html">About</a></span></li>
+                <li><span><a href="work.html" style="text-decoration: line-through;">Work</a></span></li>
+                <li><span><a href="PM.html">Parametric Design</a></span></li>
+                <li><span><a href="Grasshopper_Idea.html">Grasshopper Idea</a></span></li>
+                <li><span><a href="contact.html">Contact</a></span></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!--bottom menu-->
+    <div class=" fadeIn row" style="width:100vw;height:auto;animation-duration: 1.5s;">
+        <div class="col-md-13" id="left-hero">
+            <h1 class="hero-tag contact-hero  fadeInLeft">5th Year, 1st Semester</h1>
+            <p class="hero-des contact-des  fadeIn delay-1s"><b>Title : Dongho Pedestrian Bridge Integrating the Connection of Two Disconnected Urban Spaces and Han River Experience</b>
+            </p>
+        </div>
+    </div>
+
+
+
+
+
+    <!--Content-->
+    <div class="animated bounceInUp delay-1s">
+        <div class="row" id="work-row">
+
+
+
+
+
+            <!--panel-->
+            <div class="row work-double-row">
+                <div class="col-md-6 col-sm-12  bounceInLeft delay-3s">
+                    <div class="work-hero-card-idea">
+                        <img class="work-card-hero-img" src="assets/work/project/graduation_panel_1.png" onclick="openModal(this)">
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12  bounceInLeft delay-3s">
+                    <div class="work-hero-card-idea">
+                        <img class="work-card-hero-img" src="assets/work/project/graduation_panel_2.png" onclick="openModal(this)">
+                    </div>
+                </div>
+
+
+                <!-- 모달 구조 -->
+                <div id="myModal" class="modal">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <img class="modal-content" id="img01">
+                </div>
+
+                <script>
+                    function openModal(element) {
+                        var modal = document.getElementById("myModal");
+                        var modalImg = document.getElementById("img01");
+
+                        modal.style.display = "block";
+                        modalImg.src = element.src; // 클릭한 이미지의 경로를 모달 이미지에 적용
+                    }
+
+                    function closeModal() {
+                        var modal = document.getElementById("myModal");
+                        modal.style.display = "none";
+                    }
+                </script>
+            </div>
+
+
+
+
+            <!--Text-->
+            <div class="row work-double-row">
+                <div class="col-md-12" id = "left-hero-card-idea">
+                    <h1 class="hero-tag contact-hero  fadeInLeft">5th Year, 1st Semester(Graduation Project)</h1>
+                    <p class="hero-des contact-des  fadeIn delay-1s"><b>Dongho Pedestrian Bridge Integrating the Connection of Two Disconnected Urban Spaces and Han River Experience</b>
+                        <br>
+                        Take a look at some of my projects I've done,
+                        architecture and computer science projects.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="footer-full  fadeIn delay-2s">
+        <div class="social-icons">
+            <a target="_blank" href="mailto:bic0893@naver.com"><i class="fas fa-envelope"></i></a>
+            <a target="_blank" href="https://www.instagram.com/in_chanchan"><i class="fab fa-instagram"></i></a>
+            <a target="_blank" href="https://blog.naver.com/bic0893"><i class="fab fa-blogger"></i></a>
+            <a target="_blank" href="https://github.com/bic98"><i class="fab fa-github"></i></a>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+<div class="menu-wrap">
+    <input type="checkbox" class="toggler">
+    <div class="hamburger">
+        <div></div>
+    </div>
+    <div class="menu">
+        <div>
+            <div>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Parametric Design</a></li>
+                    <li><a disabled href="#" style="text-decoration: line-through;">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

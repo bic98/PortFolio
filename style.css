@@ -31,6 +31,20 @@
     height: 100%;
 }
 
+.work-hero-panel {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    background: #fff;
+    padding: 0;
+    border-radius: 9px;
+    padding-bottom: 15px;
+    box-shadow: 2px 2px 20px #00000025;
+    cursor: pointer;
+    transition: all 1s;
+    height: 100%;
+}
+
 @keyframes bounceIn {
     0% {
         transform: scale(0.5) translateY(-200%);
@@ -47,6 +61,47 @@
         transform: scale(1) translateY(0);
     }
 }
+
+/* 모달 전체 화면 설정 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* 모달 내 이미지 스타일 */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* 닫기 버튼 스타일 */
+.close {
+    position: absolute;
+    top: 30px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 
 .work-hero-card-circle {
     display: block;
@@ -92,7 +147,6 @@
     box-shadow: 2px 2px 20px #00000025;
     cursor: pointer;
     transition: all 1s;
-    height: 100%;
 }
 
 .work-hero-card-idea h1 {
@@ -190,6 +244,12 @@
 
 
 .work-double-row {
+    padding-left: 120px;
+    padding-right: 120px;
+    margin-top: 80px;
+}
+
+.work-panel-row {
     padding-left: 120px;
     padding-right: 120px;
     margin-top: 80px;
@@ -872,6 +932,11 @@ label {
 
 #left-hero {
     padding-left: 150px;
+}
+
+
+#left-hero-card-idea {
+    padding-left: 55px;
 }
 
 #left-right-hero {
