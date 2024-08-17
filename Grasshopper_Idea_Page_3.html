@@ -72,23 +72,17 @@
                  <!--key idea text_final-->
 
                  <!--key idea img-->
-                 <div class="col-md-3 col-sm-12 bounceInLeft delay-3s">
+                 <div class="col-md-6 col-sm-12 bounceInLeft delay-3s">
                      <div class="work-hero-card-idea">
-                         <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/midPoint2.png"
+                         <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/03_idea1_2.png"
                               onclick="openModal(this)">
                      </div>
                  </div>
 
-                 <div class="col-md-3 col-sm-12 bounceInLeft delay-3s">
-                     <div class="work-hero-card-idea">
-                         <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/midPoint2.png"
-                              onclick="openModal(this)">
-                     </div>
-                 </div>
 
                  <div class="col-md-6 col-sm-12 bounceInLeft delay-3s">
                      <div class="work-hero-card-idea">
-                         <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/03_idea1.png"
+                         <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/03_idea2.png"
                               onclick="openModal(this)">
                          <h1>You can branch shapes that come within a distance of 3 units from each curve.</h1>
                      </div>
@@ -107,32 +101,24 @@
                  </div>
                  <!--key idea text_final-->
 
-                 <!--key idea img-->
-                 <div class="col-md-6 col-sm-12 bounceInLeft delay-3s">
-                     <div class="description">
-                         <p><strong>Dot Product Formula 1 :</strong></p>
-                         <p>
-                             The dot product of two vectors \( \vec{a} \) and \( \vec{b} \) can also be expressed
-                             as the sum of the products of their components:
-                             <br><br>
-                             <span>$$ \vec{a} \cdot \vec{b} = a_1 \cdot b_1 + a_2 \cdot b_2 + \dots + a_n \cdot b_n $$</span>
-                         </p>
-                         <br>
-                         <p>
-                             <li>\( \vec{a} = \begin{pmatrix} a_1 \\ a_2 \\ \vdots \\ a_n \end{pmatrix} \) is the
-                                 vector \( \vec{a} \).
-                             </li>
-                             <li>\( \vec{b} = \begin{pmatrix} b_1 \\ b_2 \\ \vdots \\ b_n \end{pmatrix} \) is the
-                                 vector \( \vec{b} \).
-                             </li>
-                             <li><br><br>The dot product is the sum of the products of corresponding components.</li>
-                         </p>
+                 <div class="col-md-3 col-sm-12 bounceInLeft delay-3s">
+                     <div class="work-hero-card-idea">
+                         <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/03_idea2_1.png"
+                              onclick="openModal(this)">
                      </div>
                  </div>
 
+                 <div class="col-md-3 col-sm-12 bounceInLeft delay-3s">
+                     <div class="work-hero-card-idea">
+                         <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/03_idea2_2.png"
+                              onclick="openModal(this)">
+                     </div>
+                 </div>
+
+
                  <div class="col-md-6 col-sm-12 bounceInLeft delay-3s">
                      <div class="work-hero-card-idea">
-                         <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/03_idea2.png"
+                         <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/03_idea1.png"
                               onclick="openModal(this)">
                          <h1>You can branch geometries that intersect with each curve.</h1>
                      </div>
@@ -140,6 +126,109 @@
                  <!--key idea img_final-->
              </div>
              <!--panel_final-->
+
+
+
+             <div class="row work-double-row">
+                 <!--key idea text-->
+                 <div class="col-md-12" id="left-hero-card-idea">
+                     <h2 class="hero-tag contact-hero-key-idea fadeInLeft">Key Idea 2 : Perform a true/false check to determine if multiple curves of different scales intersect with each other.</h2>
+                 </div>
+                 <!--key idea text_final-->
+
+                 <div class="col-md-6 col-sm-12 bounceInLeft delay-3s">
+                     <div class="description">
+                         <p><strong>C# Code Implementation:</strong></p>
+                         <pre style="background-color: #2b2b2b; color: #a9b7c6; padding: 15px; border-radius: 5px; font-family: Consolas, 'Courier New', monospace; font-size: 14px;">
+<code>
+<span style="color: #cc7832;">private</span> <span style="color: #cc7832;">void</span> <span style="color: #ffc66d;">RunScript</span>(<span style="color: #a9b7c6;">List&lt;Curve&gt;</span> x, <span style="color: #a9b7c6;">Plane</span> y, <span style="color: #cc7832;">ref</span> <span style="color: #a9b7c6;">object</span> A)
+{
+    <span style="color: #a9b7c6;">List&lt;List&lt;Curve&gt;&gt;</span> ret = <span style="color: #cc7832;">new</span> <span style="color: #a9b7c6;">List&lt;List&lt;Curve&gt;&gt;</span>();
+    <span style="color: #cc7832;">for</span> (<span style="color: #a9b7c6;">int</span> i = <span style="color: #9876aa;">0</span>; i &lt; <span style="color: #9876aa;">100</span>; i++)
+    {
+        <span style="color: #a9b7c6;">List&lt;Curve&gt;</span> li = <span style="color: #a9b7c6;">Curve.CreateBooleanUnion</span>(x, <span style="color: #9876aa;">0.01</span>).<span style="color: #ffc66d;">ToList</span>();
+        <span style="color: #cc7832;">if</span> (li.<span style="color: #ffc66d;">Count</span> == <span style="color: #9876aa;">0</span>) <span style="color: #cc7832;">break</span>;
+        <span style="color: #a9b7c6;">Curve</span> tmp = li[<span style="color: #9876aa;">0</span>];
+        <span style="color: #a9b7c6;">List&lt;Curve&gt;</span> include = <span style="color: #cc7832;">new</span> <span style="color: #a9b7c6;">List&lt;Curve&gt;</span>();
+        <span style="color: #a9b7c6;">List&lt;Curve&gt;</span> exclusion = <span style="color: #cc7832;">new</span> <span style="color: #a9b7c6;">List&lt;Curve&gt;</span>();
+        <span style="color: #cc7832;">foreach</span> (<span style="color: #cc7832;">var</span> j <span style="color: #cc7832;">in</span> x)
+        {
+            <span style="color: #cc7832;">if</span> (<span style="color: #a9b7c6;">Curve.PlanarCurveCollision</span>(tmp, j, y, <span style="color: #9876aa;">0.01</span>))
+            {
+                include.<span style="color: #ffc66d;">Add</span>(j);
+            }
+            <span style="color: #cc7832;">else</span>
+            {
+                exclusion.<span style="color: #ffc66d;">Add</span>(j);
+            }
+        }
+
+        ret.<span style="color: #ffc66d;">Add</span>(include);
+        x = exclusion;
+    }
+
+    <span style="color: #cc7832;">var</span> result = <span style="color: #ffc66d;">makeDataTree</span>(ret);
+    A = result;
+}
+
+<span style="color: #cc7832;">public static</span> <span style="color: #a9b7c6;">DataTree&lt;T&gt;</span> <span style="color: #ffc66d;">makeDataTree</span>&lt;<span style="color: #cc7832;">T</span>&gt;(<span style="color: #a9b7c6;">List&lt;List&lt;T&gt;&gt;</span> ret)
+{
+    <span style="color: #a9b7c6;">DataTree&lt;T&gt;</span> tree = <span style="color: #cc7832;">new</span> <span style="color: #a9b7c6;">DataTree&lt;T&gt;</span>();
+    <span style="color: #cc7832;">for</span> (<span style="color: #a9b7c6;">int</span> i = <span style="color: #9876aa;">0</span>; i &lt; ret.<span style="color: #ffc66d;">Count</span>; i++)
+    {
+        <span style="color: #a9b7c6;">GH_Path</span> path = <span style="color: #cc7832;">new</span> <span style="color: #a9b7c6;">GH_Path</span>(i);
+        <span style="color: #cc7832;">for</span> (<span style="color: #a9b7c6;">int</span> j = <span style="color: #9876aa;">0</span>; j &lt; ret[i].<span style="color: #ffc66d;">Count</span>; j++)
+        {
+            tree.<span style="color: #ffc66d;">Add</span>(ret[i][j], path);
+        }
+    }
+
+    <span style="color: #cc7832;">return</span> tree;
+}
+</code>
+        </pre>
+                     </div>
+                 </div>
+
+
+
+                 <div class="col-md-6 col-sm-12 bounceInLeft delay-3s">
+                     <div class="work-hero-card-idea">
+                         <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/03_idea1_3.png"
+                              onclick="openModal(this)">
+                         <h1>C# script Code</h1>
+                     </div>
+                     <div class="description">
+                         <p><strong>
+                             <br>Explain the code</strong></p>
+                         <p>
+                             In Grasshopper C# development, I tend to avoid using while loops because they can often lead to infinite loops, which can cause the script to hang and make debugging difficult. Instead, I prefer to use for loops, which can iterate a set number of times, such as 100 to 1000 iterations. This approach is safer and more predictable, especially in a visual scripting environment like Grasshopper.
+                         </p>
+                         <br>
+                         <br>
+                         <p>
+                             The side of the code takes an initial set of curves and identifies the largest boundary formed by these curves. It then determines which rectangular cells intersect with this boundary. When an intersection occurs, the code subtracts the intersecting cells from the current set of cells (x) and stores the remaining cells in a different list.
+                         </p>
+                         <br>
+                         <br>
+                         <p>
+                             By repeating this process four times, the data is progressively refined, achieving the desired outcome as shown in the referenced diagram.
+                         </p>
+                         <br>
+                         <br>
+                         <p>
+                             In some cases, scripting can be more intuitive and concise than using standard Grasshopper components. This is especially true when dealing with complex iterative processes or custom data manipulations, where scripting provides more control and flexibility.
+                         </p>
+<!--                         <img src="assets/grasshopper_idea/detail/03_idea1_3.png" alt="Diagram illustrating the process" style="max-width:100%; height:auto; margin-top:20px;">-->
+                     </div>
+                 </div>
+
+                 <!--key idea img_final-->
+             </div>
+             <!--panel_final-->
+
+
+
 
              <!--Text-->
              <div class="col-md-12 work-double-row" style="text-align: center;">
@@ -153,6 +242,9 @@
                      </a>
                  </div>
              </div>
+
+
+
 
              <div class="col-md-12 col-sm-12 work-double-row bounceInLeft delay-3s">
                  <div class="work-hero-card-idea">
