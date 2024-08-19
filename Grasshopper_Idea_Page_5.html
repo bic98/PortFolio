@@ -1,0 +1,323 @@
+<html>
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-159411627-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-159411627-1');
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=yes">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <title>05_Data Tree - Shift Paths.</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/my_site_logo.ico">
+</head>
+<body id="contact-body" style="overflow-x: hidden;">
+<div>
+    <nav class="nav-desk">
+        <div class="nav-logo">
+
+            <a href="index.html"><img id="logo" src="assets/img/inchanchan.png"></a>
+
+        </div>
+        <div class="nav-items">
+            <ul>
+                <li><span><a href="about.html">About</a></span></li>
+                <li><span><a href="work.html">Work</a></span></li>
+                <li><span><a href="PM.html">Parametric Design</a></span></li>
+                <li><span><a href="Grasshopper_Idea.html"
+                             style="text-decoration: line-through;">Grasshopper Idea</a></span></li>
+                <li><span><a href="contact.html">Contact</a></span></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--Content-->
+    <div class="animated bounceInUp delay-1s">
+        <div class="row" id="work-row">
+            <!--Text-->
+            <div class="row work-double-row">
+                <div class="col-md-12" id="left-hero-card-idea">
+                    <h2 class="hero-tag contact-hero-idea  fadeInLeft">05_Data Tree - Shift Paths.</h2>
+                    <p class="hero-des contact-des  fadeIn delay-1s">
+                        <b>Key Ideas:</b>
+                        <br><br>
+                        1. To retrieve an element from a 3D tree, tree statistics are commonly used.
+                    </p>
+                </div>
+            </div>
+            <!--text_final-->
+
+            <!--panel-->
+            <div class="row work-double-row">
+                <!--key idea text-->
+                <div class="col-md-12" id="left-hero-card-idea">
+                    <h2 class="hero-tag contact-hero-key-idea fadeInLeft">Key Idea 1 : 1. To retrieve an element from a
+                        3D tree, tree statistics are commonly used.</h2>
+                </div>
+                <!--key idea text_final-->
+
+                <!--key idea img-->
+
+
+                <div class="col-md-6 col-sm-12 bounceInLeft delay-3s">
+                    <div class="work-hero-card-idea">
+                        <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/06_idea1_2.png"
+                             onclick="openModal(this)">
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12 bounceInLeft delay-3s">
+                    <div class="work-hero-card-idea">
+                        <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/06_idea1.png"
+                             onclick="openModal(this)">
+                        <h1>Distribute according to the number of all leaf nodes.</h1>
+                    </div>
+                </div>
+                <!--key idea img_final-->
+            </div>
+            <!--panel_final-->
+
+            <div class="row work-double-row">
+                <!--key idea text-->
+                <div class="col-md-12" id="left-hero-card-idea">
+                    <h2 class="hero-tag contact-hero-key-idea fadeInLeft">Write the c# script code by using Key Idea 1.</h2>
+                </div>
+                <!--key idea text_final-->
+
+                <div class="col-md-6 col-sm-12 bounceInLeft delay-3s">
+                    <div class="description">
+                        <p><strong>C# Code Implementation:</strong></p>
+                        <pre style="background-color:#2b2b2b; color:#a9b7c6; padding: 10px; border-radius: 5px;">
+<span style="color:#ffc66d;">private</span> <span style="color:#ffc66d;">void</span> RunScript(List&lt;<span
+                                style="color:#ffc66d;">Curve</span>&gt; x, <span
+                                style="color:#ffc66d;">int</span> y, <span style="color:#ffc66d;">int</span> z, <span
+                                style="color:#ffc66d;">int</span> w, <span style="color:#ffc66d;">int</span> u, ref object A)
+{
+    List&lt;List&lt;<span style="color:#ffc66d;">Point3d</span>&gt;&gt; llp = <span style="color:#cc7832;">new</span> List&lt;List&lt;<span
+                                style="color:#ffc66d;">Point3d</span>&gt;&gt;();
+    <span style="color:#cc7832;">for</span> (<span style="color:#cc7832;">int</span> i = <span
+                                style="color:#6897bb;">0</span>; i &lt; <span style="color:#6897bb;">3</span>; i++)
+    {
+        llp.Add(DividePts(x[i], <span style="color:#6897bb;">2</span>, <span style="color:#cc7832;">true</span>));
+    }
+
+    List&lt;List&lt;List&lt;<span style="color:#ffc66d;">Surface</span>&gt;&gt;&gt; llls = <span style="color:#cc7832;">new</span> List&lt;List&lt;List&lt;<span
+                                style="color:#ffc66d;">Surface</span>&gt;&gt;&gt;();
+    <span style="color:#cc7832;">for</span> (<span style="color:#cc7832;">int</span> i = <span
+                                style="color:#6897bb;">0</span>; i &lt; <span style="color:#6897bb;">3</span>; i++)
+    {
+        List&lt;List&lt;<span style="color:#ffc66d;">Surface</span>&gt;&gt; lls = <span
+                                style="color:#cc7832;">new</span> List&lt;List&lt;<span
+                                style="color:#ffc66d;">Surface</span>&gt;&gt;();
+        <span style="color:#cc7832;">for</span> (<span style="color:#cc7832;">int</span> j = <span
+                                style="color:#6897bb;">0</span>; j &lt; <span style="color:#6897bb;">3</span>; j++)
+        {
+            <span style="color:#ffc66d;">Curve</span> c = <span style="color:#cc7832;">new</span> <span
+                                style="color:#ffc66d;">Circle</span>(llp[i][j], y).ToNurbsCurve();
+            List&lt;<span style="color:#ffc66d;">Point3d</span>&gt; lp = DividePts(c, z, <span style="color:#cc7832;">true</span>);
+            List&lt;<span style="color:#ffc66d;">Surface</span>&gt; ls = <span style="color:#cc7832;">new</span> List&lt;<span
+                                style="color:#ffc66d;">Surface</span>&gt;();
+
+            <span style="color:#cc7832;">for</span> (<span style="color:#cc7832;">int</span> k = <span
+                                style="color:#6897bb;">0</span>; k &lt; lp.Count; k++)
+            {
+                <span style="color:#ffc66d;">Curve</span> tmp = <span style="color:#cc7832;">new</span> <span
+                                style="color:#ffc66d;">Circle</span>(lp[k], <span style="color:#6897bb;">1</span>).ToNurbsCurve();
+                <span style="color:#ffc66d;">Surface</span> s = <span style="color:#ffc66d;">Surface</span>.CreateExtrusion(tmp, <span
+                                style="color:#cc7832;">new</span> <span style="color:#ffc66d;">Vector3d</span>(<span
+                                style="color:#6897bb;">0</span>, <span style="color:#6897bb;">0</span>, w));
+                ls.Add(s);
+            }
+
+            w += u;
+            lls.Add(ls);
+        }
+
+        llls.Add(lls);
+    }
+
+    A = MakeDataTree3D(llls);
+}
+
+<span style="color:#808080;">// &lt;Custom additional code&gt;</span>
+
+<span style="color:#ffc66d;">public static</span> List&lt;<span
+                                style="color:#ffc66d;">Point3d</span>&gt; DividePts(<span
+                                style="color:#ffc66d;">Curve</span> crv, <span
+                                style="color:#cc7832;">int</span> cnt, <span style="color:#cc7832;">bool</span> end)
+{
+    List&lt;<span style="color:#ffc66d;">Point3d</span>&gt; ret = <span style="color:#cc7832;">new</span> List&lt;<span
+                                style="color:#ffc66d;">Point3d</span>&gt;();
+    <span style="color:#cc7832;">var</span> crvT = crv.DivideByCount(cnt, end);
+
+    <span style="color:#cc7832;">for</span> (<span style="color:#cc7832;">int</span> i = <span
+                                style="color:#6897bb;">0</span>; i &lt; crvT.Length; i++)
+    {
+        <span style="color:#cc7832;">var</span> pt = crv.PointAt(crvT[i]);
+        ret.Add(pt);
+    }
+
+    <span style="color:#cc7832;">return</span> ret;
+}
+
+<span style="color:#ffc66d;">public static</span> DataTree&lt;T&gt; MakeDataTree3D&lt;T&gt;(List&lt;List&lt;List&lt;T&gt;&gt;&gt; ret)
+{
+    DataTree&lt;T&gt; tree = <span style="color:#cc7832;">new</span> DataTree&lt;T&gt;();
+
+    <span style="color:#cc7832;">for</span> (<span style="color:#cc7832;">int</span> i = <span
+                                style="color:#6897bb;">0</span>; i &lt; ret.Count; i++)
+    {
+        <span style="color:#cc7832;">for</span> (<span style="color:#cc7832;">int</span> j = <span
+                                style="color:#6897bb;">0</span>; j &lt; ret[i].Count; j++)
+        {
+            <span style="color:#cc7832;">for</span> (<span style="color:#cc7832;">int</span> k = <span
+                                style="color:#6897bb;">0</span>; k &lt; ret[i][j].Count; k++)
+            {
+                GH_Path path = <span style="color:#cc7832;">new</span> GH_Path(<span style="color:#6897bb;">0</span>, i, j);
+                tree.Add(ret[i][j][k], path);
+            }
+        }
+    }
+
+    <span style="color:#cc7832;">return</span> tree;
+}
+
+<span style="color:#808080;">// &lt;/Custom additional code&gt;</span>
+        </pre>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6 col-sm-12 bounceInLeft delay-3s">
+                    <div class="work-hero-card-idea">
+                        <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/06_script.png"
+                             onclick="openModal(this)">
+                        <h1>C# script Code</h1>
+                    </div>
+
+                    <div class="description" style="text-align: center">
+
+                        <br>
+                        <br>
+                        <p><strong>C# Code Logic Description:</strong></p>
+                        <br>
+                        <br>
+                        <p>
+                            1. y is the size in leaf node.
+                        </p>
+                        <br>
+                        <p>
+                            2. z is the number of cicle in leaf node.
+                        </p>
+                        <br>
+                        <p>
+                            3. w is initial value.
+                        </p>
+                        <br>
+                        <p>
+                            4. u is equal ratio.
+                        </p>
+                    </div>
+
+                </div>
+
+                <!--key idea img_final-->
+            </div>
+            <!--panel_final-->
+
+            <!--Text-->
+            <div class="col-md-12 work-double-row" style="text-align: center;">
+                <h1 class="hero-tag contact-hero fadeInLeft">Full Scripts</h1>
+            </div>
+
+            <div class="col-md-12 col-sm-12 work-double-row bounceInLeft delay-3s">
+                <div class="work-hero-card-idea">
+                    <a href="https://github.com/bic98/grasshopper_idea/blob/main/grasshopper_skill/05_Data%20Tree%20-%20Shift%20Paths.gh">
+                        <img class="work-card-hero-img" src="assets/grasshopper_idea/Artboard%205.png">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 work-double-row bounceInLeft delay-3s">
+                <div class="work-hero-card-idea">
+                    <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/06_script.png"
+                         onclick="openModal(this)">
+                    <h1>version 1</h1>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 work-double-row bounceInLeft delay-3s">
+                <div class="work-hero-card-idea">
+                    <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/06_script2.png"
+                         onclick="openModal(this)">
+                    <h1>version 2</h1>
+                </div>
+            </div>
+
+            <!--text_final-->
+
+            <div class="footer-full  fadeIn delay-2s">
+                <div class="social-icons">
+                    <a target="_blank" href="mailto:bic0893@naver.com"><i class="fas fa-envelope"></i></a>
+                    <a target="_blank" href="https://www.instagram.com/in_chanchan"><i class="fab fa-instagram"></i></a>
+                    <a target="_blank" href="https://blog.naver.com/bic0893"><i class="fab fa-blogger"></i></a>
+                    <a target="_blank" href="https://github.com/bic98"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- 모달 구조 -->
+        <div id="myModal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img class="modal-content" id="img01">
+        </div>
+
+        <script>
+            function openModal(element) {
+                var modal = document.getElementById("myModal");
+                var modalImg = document.getElementById("img01");
+
+                modal.style.display = "block";
+                modalImg.src = element.src; // 클릭한 이미지의 경로를 모달 이미지에 적용
+            }
+
+            function closeModal() {
+                var modal = document.getElementById("myModal");
+                modal.style.display = "none";
+            }
+        </script>
+        <div class="menu-wrap">
+            <input type="checkbox" class="toggler">
+            <div class="hamburger">
+                <div></div>
+            </div>
+            <div class="menu">
+                <div>
+                    <div>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Portfolio</a></li>
+                            <li><a href="#">Parametric Design</a></li>
+                            <li><a disabled href="#" style="text-decoration: line-through;">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>
+ 
