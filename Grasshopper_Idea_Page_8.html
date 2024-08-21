@@ -1,0 +1,351 @@
+
+ <html>
+
+ <head>
+     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-159411627-1"></script>
+     <script>
+         window.dataLayer = window.dataLayer || [];
+
+         function gtag() {
+             dataLayer.push(arguments);
+         }
+
+         gtag('js', new Date());
+
+         gtag('config', 'UA-159411627-1');
+     </script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+     <link rel="stylesheet" href="style.css">
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=yes">
+     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+           integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+     <title>08_Arranging rectangles along a curved path.</title>
+     <link rel="icon" type="image/x-icon" href="assets/img/my_site_logo.ico">
+ </head>
+ <body id="contact-body" style="overflow-x: hidden;">
+ <div>
+     <nav class="nav-desk">
+         <div class="nav-logo">
+
+             <a href="index.html"><img id="logo" src="assets/img/inchanchan.png"></a>
+
+         </div>
+         <div class="nav-items">
+             <ul>
+                 <li><span><a href="about.html">About</a></span></li>
+                 <li><span><a href="work.html">Work</a></span></li>
+                 <li><span><a href="PM.html">Parametric Design</a></span></li>
+                 <li><span><a href="Grasshopper_Idea.html" style="text-decoration: line-through;">Grasshopper Idea</a></span></li>
+                 <li><span><a href="contact.html">Contact</a></span></li>
+             </ul>
+         </div>
+     </nav>
+
+     <!--Content-->
+     <div class="animated bounceInUp delay-1s">
+         <div class="row" id="work-row">
+             <!--Text-->
+             <div class="row work-double-row">
+                 <div class="col-md-12" id="left-hero-card-idea">
+                     <h2 class="hero-tag contact-hero-idea  fadeInLeft">08_Arranging rectangles along a curved path.</h2>
+                     <p class="hero-des contact-des  fadeIn delay-1s">
+                         <b>Key Ideas:</b>
+                         <br><br>
+                         1. In the Construct Plane component, once the X direction is defined, the Y direction is automatically determined, regardless of the value provided.
+                         <br><br>
+                         2. The Orient component aligns one plane to another as if sticking one plane onto the other like a sticker.
+                     </p>
+                 </div>
+             </div>
+             <!--text_final-->
+
+             <!--panel-->
+             <div class="row work-double-row">
+                 <!--key idea text-->
+                 <div class="col-md-12" id="left-hero-card-idea">
+                     <h2 class="hero-tag contact-hero-key-idea fadeInLeft">Key Idea 1 : 1. In the Construct Plane component, once the X direction is defined, the Y direction is automatically determined, regardless of the value provided.</h2>
+                 </div>
+                 <!--key idea text_final-->
+
+                 <!--key idea img-->
+                 <div class="col-md-6 col-sm-12 bounceInLeft delay-3s">
+                     <div class="work-hero-card-idea">
+                         <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/08_idea1_1.png"
+                              onclick="openModal(this)">
+                         <h1>first matching x direcion, y direction determines just yAxis's location of its plane</h1>
+                     </div>
+                 </div>
+
+
+                 <div class="col-md-6 col-sm-12 bounceInLeft delay-3s">
+                     <div class="work-hero-card-idea">
+                         <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/08_idea1.png"
+                              onclick="openModal(this)">
+                         <h1>Therefore, focus first on how to set the X direction.</h1>
+                     </div>
+                 </div>
+                 <!--key idea img_final-->
+             </div>
+             <!--panel_final-->
+
+             <!--panel-->
+             <div class="row work-double-row">
+                 <!--key idea text-->
+                 <div class="col-md-12" id="left-hero-card-idea">
+                     <h2 class="hero-tag contact-hero-key-idea fadeInLeft">Key Idea 2 : 2. The Orient component aligns one plane to another as if sticking one plane onto the other like a sticker.</h2>
+                 </div>
+                 <!--key idea text_final-->
+
+                 <!--key idea img-->
+                 <div class="col-md-6 col-sm-12 bounceInLeft delay-3s">
+                     <div class="work-hero-card-idea">
+                         <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/08_idea2_1.png"
+                              onclick="openModal(this)">
+                         <h1>must make a plane A and B</h1>
+                     </div>
+                 </div>
+
+
+
+                 <div class="col-md-6 col-sm-12 bounceInLeft delay-3s">
+                     <div class="work-hero-card-idea">
+                         <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/08_idea2.png"
+                              onclick="openModal(this)">
+                         <h1>Think of it as solving a puzzle.</h1>
+                     </div>
+                 </div>
+                 <!--key idea img_final-->
+             </div>
+             <!--panel_final-->
+
+             <div class="row work-double-row">
+                 <!--key idea text-->
+                 <div class="col-md-12" id="left-hero-card-idea">
+                     <h2 class="hero-tag contact-hero-key-idea fadeInLeft">Write the c# script code by using Key Idea 1.</h2>
+                 </div>
+                 <!--key idea text_final-->
+                 <div class="col-md-6 col-sm-12 bounceInLeft delay-3s">
+                     <div class="description">
+                         <p><strong>C# Code Implementation:</strong></p>
+                         <pre style="background-color:#2b2b2b; color:#a9b7c6; padding: 10px; border-radius: 5px;">
+<span style="color:#ffc66d;">#region</span> Runscript
+<span style="color:#ffc66d;">private</span> <span style="color:#ffc66d;">void</span> RunScript(<span style="color:#ffc66d;">Curve</span> x, <span style="color:#ffc66d;">Curve</span> y, ref object A, ref object B, ref object C, ref object D)
+{
+    <span style="color:#808080;">// Extract discontinuity points from curve x</span>
+    <span style="color:#cc7832;">var</span> pts = Discontinuity(x);
+
+    <span style="color:#808080;">// Sort points based on their distance to the origin</span>
+    pts.Sort((u, v) => u.DistanceTo(<span style="color:#ffc66d;">Point3d</span>.Origin).CompareTo(v.DistanceTo(<span style="color:#ffc66d;">Point3d</span>.Origin)));
+    <span style="color:#cc7832;">var</span> now = pts[0];
+
+    <span style="color:#808080;">// Move and orient the curve x to align with the starting point of curve y</span>
+    <span style="color:#ffc66d;">Curve</span> crv = MoveOrientPoint(x, now, y.PointAt(<span style="color:#6897bb;">0</span>));
+    A = crv;
+    B = y.PointAt(<span style="color:#6897bb;">0</span>);
+
+    <span style="color:#808080;">// Find the closest point to the current point</span>
+    <span style="color:#cc7832;">var</span> cps = CloPts(pts, now, <span style="color:#6897bb;">1</span>);
+    <span style="color:#ffc66d;">Vector3d</span> n = cps[<span style="color:#6897bb;">0</span>] - now;
+
+    <span style="color:#808080;">// Output the vector and distance to the closest point</span>
+    C = n;
+    D = now.DistanceTo(cps[<span style="color:#6897bb;">0</span>]);
+}
+<span style="color:#ffc66d;">#endregion</span>
+
+<span style="color:#ffc66d;">#region</span> Additional
+
+<span style="color:#808080;">/// &lt;summary&gt;</span>
+<span style="color:#808080;">/// Moves and orients a geometric object from one point to another.</span>
+<span style="color:#808080;">/// &lt;/summary&gt;</span>
+<span style="color:#ffc66d;">public</span> T MoveOrientPoint&lt;T&gt;(T obj, <span style="color:#ffc66d;">Point3d</span> now, <span style="color:#ffc66d;">Point3d</span> nxt) <span style="color:#cc7832;">where</span> T : <span style="color:#ffc66d;">GeometryBase</span>
+{
+    <span style="color:#ffc66d;">Plane</span> baseNow = <span style="color:#ffc66d;">Plane</span>.WorldXY;
+    <span style="color:#ffc66d;">Plane</span> st = <span style="color:#cc7832;">new</span> <span style="color:#ffc66d;">Plane</span>(now, baseNow.XAxis, baseNow.YAxis);
+    <span style="color:#ffc66d;">Plane</span> en = <span style="color:#cc7832;">new</span> <span style="color:#ffc66d;">Plane</span>(nxt, baseNow.XAxis, baseNow.YAxis);
+    <span style="color:#ffc66d;">Transform</span> orient = <span style="color:#ffc66d;">Transform</span>.PlaneToPlane(st, en);
+    obj.Transform(orient);
+    <span style="color:#cc7832;">return</span> obj;
+}
+
+<span style="color:#808080;">/// &lt;summary&gt;</span>
+<span style="color:#808080;">/// Moves a point along a given vector by a specified amplitude.</span>
+<span style="color:#808080;">/// &lt;/summary&gt;</span>
+<span style="color:#ffc66d;">public</span> <span style="color:#ffc66d;">Point3d</span> MovePt(<span style="color:#ffc66d;">Point3d</span> p, <span style="color:#ffc66d;">Vector3d</span> v, <span style="color:#ffc66d;">double</span> amp)
+{
+    v.Unitize();
+    <span style="color:#ffc66d;">Transform</span> move = <span style="color:#ffc66d;">Transform</span>.Translation(v * amp);
+    p.Transform(move);
+    <span style="color:#cc7832;">return</span> p;
+}
+
+<span style="color:#808080;">/// &lt;summary&gt;</span>
+<span style="color:#808080;">/// Extracts points from a curve where there is a discontinuity.</span>
+<span style="color:#808080;">/// &lt;/summary&gt;</span>
+<span style="color:#ffc66d;">public</span> List&lt;<span style="color:#ffc66d;">Point3d</span>&gt; Discontinuity(<span style="color:#ffc66d;">Curve</span> x)
+{
+    <span style="color:#cc7832;">var</span> seg = x.DuplicateSegments();
+    List&lt;<span style="color:#ffc66d;">Point3d</span>&gt; pts = <span style="color:#cc7832;">new</span> List&lt;<span style="color:#ffc66d;">Point3d</span>&gt;();
+
+    <span style="color:#cc7832;">for</span> (<span style="color:#cc7832;">int</span> i = <span style="color:#6897bb;">0</span>; i &lt; seg.Length; i++)
+    {
+        <span style="color:#cc7832;">if</span> (i == <span style="color:#6897bb;">0</span>) pts.Add(seg[i].PointAtStart);
+        pts.Add(seg[i].PointAtEnd);
+    }
+
+    <span style="color:#cc7832;">if</span> (x.IsClosed) pts.RemoveAt(pts.Count - <span style="color:#6897bb;">1</span>);
+    <span style="color:#cc7832;">return</span> pts;
+}
+
+<span style="color:#808080;">/// &lt;summary&gt;</span>
+<span style="color:#808080;">/// Finds the closest points to a given point.</span>
+<span style="color:#808080;">/// &lt;/summary&gt;</span>
+<span style="color:#ffc66d;">public</span> List&lt;<span style="color:#ffc66d;">Point3d</span>&gt; CloPts(List&lt;<span style="color:#ffc66d;">Point3d</span>&gt; pts, <span style="color:#ffc66d;">Point3d</span> now, <span style="color:#cc7832;">int</span> cnt)
+{
+    pts.Sort((u, v) => u.DistanceTo(now).CompareTo(v.DistanceTo(now)));
+    List&lt;<span style="color:#ffc66d;">Point3d</span>&gt; ans = <span style="color:#cc7832;">new</span> List&lt;<span style="color:#ffc66d;">Point3d</span>&gt;();
+
+    <span style="color:#cc7832;">for</span> (<span style="color:#cc7832;">int</span> i = <span style="color:#6897bb;">0</span>; i &lt; pts.Count; i++)
+    {
+        <span style="color:#cc7832;">if</span> (ans.Count == cnt) <span style="color:#cc7832;">break</span>;
+        <span style="color:#cc7832;">if</span> (pts[i] == now) <span style="color:#cc7832;">continue</span>;
+        ans.Add(pts[i]);
+    }
+
+    <span style="color:#cc7832;">return</span> ans;
+}
+<span style="color:#ffc66d;">#endregion</span>
+        </pre>
+                     </div>
+                 </div>
+
+
+
+
+                 <div class="col-md-6 col-sm-12 bounceInLeft delay-3s">
+                     <div class="work-hero-card-idea">
+                         <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/08_script2.png"
+                              onclick="openModal(this)">
+                         <h1>C# Script Code</h1>
+                     </div>
+
+                     <div class="description">
+                         <br>
+                         <p><strong>C# Code Logic Description:</strong></p>
+                         <p>
+                             1. Discontinuity points are extracted from a curve and sorted by their distance from the origin.
+                         </p>
+                         <br>
+                         <p>
+                             2. The curve is moved and oriented to align with the start of another curve.
+                         </p>
+                         <br>
+                         <p>
+                             3. The closest points to the current point are identified, and the vector between them is calculated.
+                         </p>
+                         <br>
+                         <p>
+                             4. A transformation is applied to move the curve based on this vector.
+                         </p>
+                         <br>
+                         <p>
+                             5. The result includes the transformed curve, vector, and distance between points.
+                         </p>
+                         <br>
+                         <p>
+                             6. Helper functions are used to handle point sorting, vector calculations, and transformations.
+                         </p>
+                     </div>
+                 </div>
+
+                 <!--panel_final-->
+             <!--Text-->
+             <div class="col-md-12 work-double-row" style="text-align: center;">
+                 <h1 class="hero-tag contact-hero fadeInLeft">Full Scripts</h1>
+             </div>
+
+             <div class="col-md-12 col-sm-12 work-double-row bounceInLeft delay-3s">
+                 <div class="work-hero-card-idea">
+                     <a href="https://github.com/bic98/grasshopper_idea/blob/main/grasshopper_skill/08_Arranging%20rectangles%20along%20a%20curved%20path.gh">
+                         <img class="work-card-hero-img" src="assets/grasshopper_idea/Artboard%208.png">
+                     </a>
+                 </div>
+             </div>
+
+             <div class="col-md-12 col-sm-12 work-double-row bounceInLeft delay-3s">
+                 <div class="work-hero-card-idea">
+                     <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/08_script.png"
+                          onclick="openModal(this)">
+                     <h1>version 1</h1>
+                 </div>
+             </div>
+             
+             <div class="col-md-12 col-sm-12 work-double-row bounceInLeft delay-3s">
+                 <div class="work-hero-card-idea">
+                     <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/08_script2.png"
+                          onclick="openModal(this)">
+                     <h1>version 2</h1>
+                 </div>
+             </div>
+
+
+
+
+             
+             <!--text_final-->
+
+             <div class="footer-full  fadeIn delay-2s">
+                 <div class="social-icons">
+                     <a target="_blank" href="mailto:bic0893@naver.com"><i class="fas fa-envelope"></i></a>
+                     <a target="_blank" href="https://www.instagram.com/in_chanchan"><i class="fab fa-instagram"></i></a>
+                     <a target="_blank" href="https://blog.naver.com/bic0893"><i class="fab fa-blogger"></i></a>
+                     <a target="_blank" href="https://github.com/bic98"><i class="fab fa-github"></i></a>
+                 </div>
+             </div>
+         </div>
+             <!-- 모달 구조 -->
+         <div id="myModal" class="modal">
+             <span class="close" onclick="closeModal()">&times;</span>
+             <img class="modal-content" id="img01">
+         </div>
+         
+         <script>
+             function openModal(element) {
+                 var modal = document.getElementById("myModal");
+                 var modalImg = document.getElementById("img01");
+
+                 modal.style.display = "block";
+                 modalImg.src = element.src; // 클릭한 이미지의 경로를 모달 이미지에 적용
+             }
+
+             function closeModal() {
+                 var modal = document.getElementById("myModal");
+                 modal.style.display = "none";
+             }
+         </script>
+         <div class="menu-wrap">
+             <input type="checkbox" class="toggler">
+             <div class="hamburger">
+                 <div></div>
+             </div>
+             <div class="menu">
+                 <div>
+                     <div>
+                         <ul>
+                             <li><a href="index.html">Home</a></li>
+                             <li><a href="#">About</a></li>
+                             <li><a href="#">Portfolio</a></li>
+                             <li><a href="#">Parametric Design</a></li>
+                             <li><a disabled href="#" style="text-decoration: line-through;">Contact</a></li>
+                         </ul>
+                     </div>
+                 </div>
+             </div>
+         </div>
+ </body>
+ </html>
+ 
