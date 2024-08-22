@@ -1,0 +1,438 @@
+
+ <html>
+
+ <head>
+     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-159411627-1"></script>
+     <script>
+         window.dataLayer = window.dataLayer || [];
+
+         function gtag() {
+             dataLayer.push(arguments);
+         }
+
+         gtag('js', new Date());
+
+         gtag('config', 'UA-159411627-1');
+     </script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+     <link rel="stylesheet" href="style.css">
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=yes">
+     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+           integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+     <title>09_Creating a polyline by connecting points.</title>
+     <link rel="icon" type="image/x-icon" href="assets/img/my_site_logo.ico">
+ </head>
+ <body id="contact-body" style="overflow-x: hidden;">
+ <div>
+     <nav class="nav-desk">
+         <div class="nav-logo">
+
+             <a href="index.html"><img id="logo" src="assets/img/inchanchan.png"></a>
+
+         </div>
+         <div class="nav-items">
+             <ul>
+                 <li><span><a href="about.html">About</a></span></li>
+                 <li><span><a href="work.html">Work</a></span></li>
+                 <li><span><a href="PM.html">Parametric Design</a></span></li>
+                 <li><span><a href="Grasshopper_Idea.html" style="text-decoration: line-through;">Grasshopper Idea</a></span></li>
+                 <li><span><a href="contact.html">Contact</a></span></li>
+             </ul>
+         </div>
+     </nav>
+
+     <!--Content-->
+     <div class="animated bounceInUp delay-1s">
+         <div class="row" id="work-row">
+             <!--Text-->
+             <div class="row work-double-row">
+                 <div class="col-md-12" id="left-hero-card-idea">
+                     <h2 class="hero-tag contact-hero-idea  fadeInLeft">09_Creating a polyline by connecting points.</h2>
+                     <p class="hero-des contact-des  fadeIn delay-1s">
+                         <b>Key Ideas:</b>
+                         <br><br>
+                         1. CCW or CW is determined through the cross product.
+                         <br><br>
+                         2. Angle sorting using CCW.
+                     </p>
+                 </div>
+             </div>
+             <!--text_final-->
+
+             <!--panel-->
+             <div class="row work-double-row">
+                 <!--key idea text-->
+                 <div class="col-md-12" id="left-hero-card-idea">
+                     <h2 class="hero-tag contact-hero-key-idea fadeInLeft">Key Idea 1 : 1. CCW or CW is determined through the cross product.</h2>
+                 </div>
+                 <!--key idea text_final-->
+
+                 <!--key idea img-->
+                 <div class="col-md-6 col-sm-12 bounceInLeft delay-3s">
+                     <div class="work-hero-card-idea">
+                         <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/09_idea1_1.png"
+                              onclick="openModal(this)">
+                     </div>
+                 </div>
+
+
+
+                 <div class="col-md-6 col-sm-12 bounceInLeft delay-3s">
+                     <div class="work-hero-card-idea">
+                         <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/09_idea1.png"
+                              onclick="openModal(this)">
+                     </div>
+                 </div>
+
+                 <div class="col-md-12" id="left-hero-card-idea">
+                     <p class="hero-des contact-des  fadeIn delay-1s">
+                         <br><br>
+                         Whether vector B is clockwise or counterclockwise relative to vector A is determined by the angle between the two vectors. Specifically, this can be judged by the direction of the cross product vector, whether it is positive or negative.
+                     </p>
+                 </div>
+                 <!--key idea img_final-->
+             </div>
+             <!--panel_final-->
+
+             <!--panel-->
+             <div class="row work-double-row">
+                 <!--key idea text-->
+                 <div class="col-md-12" id="left-hero-card-idea">
+                     <h2 class="hero-tag contact-hero-key-idea fadeInLeft">Key Idea 2 : 2. Angle sorting using CCW.</h2>
+                 </div>
+                 <!--key idea text_final-->
+
+                 <!--key idea img-->
+                 <div class="col-md-6 col-sm-12 bounceInLeft delay-3s">
+                     <div class="work-hero-card-idea">
+                         <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/09_idea2_1.png"
+                              onclick="openModal(this)">
+                     </div>
+                 </div>
+
+                 <div class="col-md-6 col-sm-12 bounceInLeft delay-3s">
+                     <div class="work-hero-card-idea">
+                         <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/09_idea2.png"
+                              onclick="openModal(this)">
+                     </div>
+                 </div>
+
+                 <div class="col-md-12" id="left-hero-card-idea">
+                     <p class="hero-des contact-des  fadeIn delay-1s">
+                         <br><br>
+                         As we compare two points, if the cross product vector is negative, it means that the point is located clockwise relative to the current point. When considering ascending order sorting, if the cross product is negative, the point should be positioned at the last index, so we assign 1. If the cross product is positive, the point should come first, so we assign -1. If the cross product is zero (meaning the points are collinear), the point closest to the reference point is placed first.W.
+                     </p>
+                 </div>
+                 <!--key idea img_final-->
+             </div>
+             <!--panel_final-->
+
+             <div class="row work-double-row">
+                 <!--key idea text-->
+                 <div class="col-md-12" id="left-hero-card-idea">
+                     <h2 class="hero-tag contact-hero-key-idea fadeInLeft">Write the c# script code by using Key Idea 1.</h2>
+                 </div>
+                 <!--key idea text_final-->
+                 <div class="col-md-6 col-sm-12 bounceInLeft delay-3s">
+                     <div class="description">
+                         <p><strong>C# Code Implementation:</strong></p>
+                         <pre style="background-color:#2b2b2b; color:#a9b7c6; padding: 10px; border-radius: 5px;">
+<span style="color:#ffc66d;">#region</span> Runscript
+<span style="color:#ffc66d;">private</span> <span style="color:#ffc66d;">void</span> RunScript(DataTree&lt;<span style="color:#ffc66d;">Point3d</span>&gt; x, object y, ref object A, ref object B, ref object C, ref object D)
+{
+    <span style="color:#808080;">// Convert DataTree to a list of lists of points</span>
+    <span style="color:#cc7832;">var</span> li = ConvertDataTreeToList(x);
+
+    <span style="color:#808080;">// Initialize a list to store resulting curves</span>
+    List&lt;<span style="color:#ffc66d;">Curve</span>&gt; ans = <span style="color:#cc7832;">new</span> List&lt;<span style="color:#ffc66d;">Curve</span>&gt;();
+
+    <span style="color:#808080;">// Loop through each branch in the list</span>
+    <span style="color:#cc7832;">for</span> (<span style="color:#cc7832;">int</span> i = <span style="color:#6897bb;">0</span>; i &lt; li.Count; i++)
+    {
+        <span style="color:#808080;">// Sort points by Y coordinate and create a polyline curve</span>
+        <span style="color:#cc7832;">var</span> now = li[i];
+        now.Sort((u, v) => u.Y.CompareTo(v.Y));
+        <span style="color:#ffc66d;">PolylineCurve</span> crv = <span style="color:#cc7832;">new</span> <span style="color:#ffc66d;">PolylineCurve</span>(now);
+
+        <span style="color:#808080;">// Add segments of the polyline curve to the list of curves</span>
+        <span style="color:#cc7832;">var</span> crvs = crv.DuplicateSegments();
+        <span style="color:#cc7832;">foreach</span> (<span style="color:#cc7832;">var</span> seg <span style="color:#cc7832;">in</span> crvs)
+        {
+            ans.Add(seg);
+        }
+
+        <span style="color:#808080;">// Update the current branch in the list</span>
+        li[i] = now;
+    }
+
+    <span style="color:#808080;">// Process the branches to create additional curves</span>
+    <span style="color:#cc7832;">for</span> (<span style="color:#cc7832;">int</span> i = <span style="color:#6897bb;">0</span>; i &lt; <span style="color:#6897bb;">4</span>; i++)
+    {
+        List&lt;<span style="color:#ffc66d;">Point3d</span>&gt; tmp = <span style="color:#cc7832;">new</span> List&lt;<span style="color:#ffc66d;">Point3d</span>&gt;();
+        <span style="color:#cc7832;">for</span> (<span style="color:#cc7832;">int</span> j = <span style="color:#6897bb;">0</span>; j &lt; li.Count; j++)
+        {
+            <span style="color:#808080;">// Handle cases where there are only two points in the branch</span>
+            <span style="color:#cc7832;">if</span> (li[j].Count == <span style="color:#6897bb;">2</span>)
+            {
+                <span style="color:#cc7832;">if</span>(i == <span style="color:#6897bb;">0</span> || i == <span style="color:#6897bb;">3</span>) <span style="color:#cc7832;">continue</span>;
+                tmp.Add(li[j][i - <span style="color:#6897bb;">1</span>]);
+            }
+            <span style="color:#cc7832;">else</span> tmp.Add(li[j][i]);
+        }
+
+        <span style="color:#808080;">// Sort points by X coordinate and create a polyline curve</span>
+        tmp.Sort((u, v) => u.X.CompareTo(v.X));
+        <span style="color:#ffc66d;">PolylineCurve</span> crv = <span style="color:#cc7832;">new</span> <span style="color:#ffc66d;">PolylineCurve</span>(tmp);
+
+        <span style="color:#808080;">// Add segments of the polyline curve to the list of curves</span>
+        <span style="color:#cc7832;">var</span> crvs = crv.DuplicateSegments();
+        <span style="color:#cc7832;">foreach</span> (<span style="color:#cc7832;">var</span> seg <span style="color:#cc7832;">in</span> crvs)
+        {
+            ans.Add(seg);
+        }
+    }
+
+    <span style="color:#808080;">// Generate surfaces based on the curves</span>
+    List&lt;<span style="color:#ffc66d;">Surface</span>&gt; srf = <span style="color:#cc7832;">new</span> List&lt;<span style="color:#ffc66d;">Surface</span>&gt;();
+
+    <span style="color:#808080;">// Loop through each point in the branches to create surfaces</span>
+    <span style="color:#cc7832;">for</span> (<span style="color:#cc7832;">int</span> i = <span style="color:#6897bb;">0</span>; i &lt; li.Count; i++)
+    {
+        <span style="color:#cc7832;">for</span> (<span style="color:#cc7832;">int</span> j = <span style="color:#6897bb;">0</span>; j &lt; li[i].Count; j++)
+        {
+            <span style="color:#808080;">// Find curves passing through the current point</span>
+            <span style="color:#cc7832;">var</span> nowP = li[i][j];
+            <span style="color:#cc7832;">var</span> pic = PointsInCurves(ans, nowP);
+
+            <span style="color:#808080;">// Sort neighboring points in a clockwise manner</span>
+            List&lt;<span style="color:#ffc66d;">Point3d</span>&gt; ccwP = <span style="color:#cc7832;">new</span> List&lt;<span style="color:#ffc66d;">Point3d</span>&gt;();
+            <span style="color:#cc7832;">for</span> (<span style="color:#cc7832;">int</span> p = <span style="color:#6897bb;">0</span>; p &lt; pic.Count; p++)
+            {
+                <span style="color:#cc7832;">var</span> a = pic[p].PointAtEnd;
+                <span style="color:#cc7832;">var</span> b = pic[p].PointAtStart;
+                <span style="color:#cc7832;">if</span> (a == nowP) ccwP.Add(b);
+                <span style="color:#cc7832;">else</span> ccwP.Add(a);
+            }
+
+            ccwP = SortPointsClockwise(ccwP, nowP);
+
+            <span style="color:#808080;">// Create surfaces from the point and its neighbors</span>
+            <span style="color:#cc7832;">for</span> (<span style="color:#cc7832;">int</span> p = <span style="color:#6897bb;">0</span>; p &lt; ccwP.Count; p++)
+            {
+                <span style="color:#ffc66d;">Surface</span> tmp = <span style="color:#ffc66d;">NurbsSurface</span>.CreateFromCorners(nowP, ccwP[p], ccwP[(p + <span style="color:#6897bb;">1</span>) % ccwP.Count]);
+                srf.Add(tmp);
+            }
+
+            <span style="color:#808080;">// Output specific points and curves for analysis</span>
+            <span style="color:#cc7832;">if</span> (i == <span style="color:#6897bb;">3</span> && j == <span style="color:#6897bb;">1</span>)
+            {
+                A = pic;
+                B = ccwP;
+            }
+        }
+    }
+
+    C = srf;
+}
+<span style="color:#ffc66d;">#endregion</span>
+
+<span style="color:#ffc66d;">#region</span> Additional
+
+<span style="color:#808080;">/// &lt;summary&gt;</span>
+<span style="color:#808080;">/// Sorts a list of points in a clockwise direction around a reference point.</span>
+<span style="color:#808080;">/// &lt;/summary&gt;</span>
+<span style="color:#ffc66d;">public</span> List&lt;<span style="color:#ffc66d;">Point3d</span>&gt; SortPointsClockwise(List&lt;<span style="color:#ffc66d;">Point3d</span>&gt; points, <span style="color:#ffc66d;">Point3d</span> referencePoint)
+{
+    points.Sort((pointA, pointB) =>
+    {
+        <span style="color:#ffc66d;">Vector3d</span> vecA = pointA - referencePoint;
+        <span style="color:#ffc66d;">Vector3d</span> vecB = pointB - referencePoint;
+
+        <span style="color:#808080;">// Calculate cross product of vectors relative to Z-axis</span>
+        <span style="color:#cc7832;">var</span> crossProduct = <span style="color:#ffc66d;">Vector3d</span>.CrossProduct(vecA, vecB).Z;
+
+        <span style="color:#808080;">// Sort based on CCW direction</span>
+        <span style="color:#cc7832;">if</span> (crossProduct &gt; <span style="color:#6897bb;">0</span>)
+            <span style="color:#cc7832;">return</span> <span style="color:#6897bb;">1</span>;
+        <span style="color:#cc7832;">else if</span> (crossProduct &lt; <span style="color:#6897bb;">0</span>)
+            <span style="color:#cc7832;">return</span> -<span style="color:#6897bb;">1</span>;
+        <span style="color:#cc7832;">else</span>
+        {
+            <span style="color:#808080;">// If vectors are collinear, sort by distance to the reference point</span>
+            <span style="color:#ffc66d;">double</span> distA = vecA.Length;
+            <span style="color:#ffc66d;">double</span> distB = vecB.Length;
+            <span style="color:#cc7832;">return</span> distA.CompareTo(distB);
+        }
+    });
+
+    <span style="color:#cc7832;">return</span> points;
+}
+
+<span style="color:#808080;">/// &lt;summary&gt;</span>
+<span style="color:#808080;">/// Finds curves that pass through a given point.</span>
+<span style="color:#808080;">/// &lt;/summary&gt;</span>
+<span style="color:#ffc66d;">public</span> List&lt;<span style="color:#ffc66d;">Curve</span>&gt; PointsInCurves(List&lt;<span style="color:#ffc66d;">Curve</span>&gt; crves, <span style="color:#ffc66d;">Point3d</span> pt)
+{
+    List&lt;<span style="color:#ffc66d;">Curve</span>&gt; ans = <span style="color:#cc7832;">new</span> List&lt;<span style="color:#ffc66d;">Curve</span>&gt;();
+
+    <span style="color:#cc7832;">for</span> (<span style="color:#cc7832;">int</span> i = <span style="color:#6897bb;">0</span>; i &lt; crves.Count; i++)
+    {
+        <span style="color:#ffc66d;">double</span> t;
+        <span style="color:#cc7832;">if</span> (crves[i].ClosestPoint(pt, <span style="color:#ffc66d;">out</span> t, <span style="color:#6897bb;">0.001</span>))
+        {
+            ans.Add(crves[i]);
+        }
+    }
+
+    <span style="color:#cc7832;">return</span> ans;
+}
+
+<span style="color:#808080;">/// &lt;summary&gt;</span>
+<span style="color:#808080;">/// Converts a DataTree to a list of lists.</span>
+<span style="color:#808080;">/// &lt;/summary&gt;</span>
+<span style="color:#ffc66d;">public</span> List&lt;List&lt;T&gt;&gt; ConvertDataTreeToList&lt;T&gt;(DataTree&lt;T&gt; dataTree)
+{
+    List&lt;List&lt;T&gt;&gt; list2D = <span style="color:#cc7832;">new</span> List&lt;List&lt;T&gt;&gt;();
+
+    <span style="color:#cc7832;">foreach</span> (GH_Path path <span style="color:#cc7832;">in</span> dataTree.Paths)
+    {
+        List&lt;T&gt; branchList = dataTree.Branch(path).ToList();
+        list2D.Add(branchList);
+    }
+
+    <span style="color:#cc7832;">return</span> list2D;
+}
+<span style="color:#808080;">// &lt;/Custom additional code&gt;</span>
+<span style="color:#ffc66d;">#endregion</span>
+        </pre>
+                     </div>
+                 </div>
+
+
+
+                 <div class="col-md-6 col-sm-12 bounceInLeft delay-3s">
+                     <div class="work-hero-card-idea">
+                         <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/09_script3.png"
+                              onclick="openModal(this)">
+                         <h1>C# script Code</h1>
+                     </div>
+
+                     <div class="description">
+                         <br>
+                         <p><strong>C# Code Logic Description:</strong></p>
+                         <p>
+                             1. The input `DataTree` of points is converted into a `List<List<Point3d>>` structure.
+                         </p>
+                         <br>
+                         <p>
+                             2. The points in each list are sorted by their Y-coordinates, and then polylines are created and segmented into curves.
+                         </p>
+                         <br>
+                         <p>
+                             3. For each point, the points are sorted based on their X-coordinates to form additional polylines.
+                         </p>
+                         <br>
+                         <p>
+                             4. The code identifies all curves passing through each point and stores the resulting curves.
+                         </p>
+                         <br>
+                         <p>
+                             5. Curves around each point are sorted in a clockwise manner based on their cross products with a reference point.
+                         </p>
+                         <br>
+                         <p>
+                             6. Surfaces are generated between these sorted points to create the desired geometry.
+                         </p>
+                     </div>
+                 </div>
+
+
+                 <!--panel_final-->
+
+
+             <!--Text-->
+             <div class="col-md-12 work-double-row" style="text-align: center;">
+                 <h1 class="hero-tag contact-hero fadeInLeft">Full Scripts</h1>
+             </div>
+
+             <div class="col-md-12 col-sm-12 work-double-row bounceInLeft delay-3s">
+                 <div class="work-hero-card-idea">
+                     <a href="https://github.com/bic98/useful_grasshopper_component/blob/main/component%20files/grasshopper_skill/09_Creating%20a%20polyline%20by%20connecting%20points.gh">
+                         <img class="work-card-hero-img" src="assets/grasshopper_idea/Artboard%209.png">
+                     </a>
+                 </div>
+             </div>
+
+             <div class="col-md-12 col-sm-12 work-double-row bounceInLeft delay-3s">
+                 <div class="work-hero-card-idea">
+                     <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/09_script.png"
+                          onclick="openModal(this)">
+                     <h1>version 1</h1>
+                 </div>
+             </div>
+             
+             <div class="col-md-12 col-sm-12 work-double-row bounceInLeft delay-3s">
+                 <div class="work-hero-card-idea">
+                     <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/09_script2.png"
+                          onclick="openModal(this)">
+                     <h1>version 2</h1>
+                 </div>
+             </div>
+             
+             <!--text_final-->
+
+             <div class="footer-full  fadeIn delay-2s">
+                 <div class="social-icons">
+                     <a target="_blank" href="mailto:bic0893@naver.com"><i class="fas fa-envelope"></i></a>
+                     <a target="_blank" href="https://www.instagram.com/in_chanchan"><i class="fab fa-instagram"></i></a>
+                     <a target="_blank" href="https://blog.naver.com/bic0893"><i class="fab fa-blogger"></i></a>
+                     <a target="_blank" href="https://github.com/bic98"><i class="fab fa-github"></i></a>
+                 </div>
+             </div>
+         </div>
+             <!-- 모달 구조 -->
+         <div id="myModal" class="modal">
+             <span class="close" onclick="closeModal()">&times;</span>
+             <img class="modal-content" id="img01">
+         </div>
+         
+         <script>
+             function openModal(element) {
+                 var modal = document.getElementById("myModal");
+                 var modalImg = document.getElementById("img01");
+
+                 modal.style.display = "block";
+                 modalImg.src = element.src; // 클릭한 이미지의 경로를 모달 이미지에 적용
+             }
+
+             function closeModal() {
+                 var modal = document.getElementById("myModal");
+                 modal.style.display = "none";
+             }
+         </script>
+         <div class="menu-wrap">
+             <input type="checkbox" class="toggler">
+             <div class="hamburger">
+                 <div></div>
+             </div>
+             <div class="menu">
+                 <div>
+                     <div>
+                         <ul>
+                             <li><a href="index.html">Home</a></li>
+                             <li><a href="#">About</a></li>
+                             <li><a href="#">Portfolio</a></li>
+                             <li><a href="#">Parametric Design</a></li>
+                             <li><a disabled href="#" style="text-decoration: line-through;">Contact</a></li>
+                         </ul>
+                     </div>
+                 </div>
+             </div>
+         </div>
+ </body>
+ </html>
+ 
