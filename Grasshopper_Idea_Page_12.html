@@ -1,0 +1,298 @@
+<html>
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-159411627-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-159411627-1');
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=yes">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <title>12_make a brick.gh</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/my_site_logo.ico">
+</head>
+<body id="contact-body" style="overflow-x: hidden;">
+<div>
+    <nav class="nav-desk">
+        <div class="nav-logo">
+
+            <a href="index.html"><img id="logo" src="assets/img/inchanchan.png"></a>
+
+        </div>
+        <div class="nav-items">
+            <ul>
+                <li><span><a href="about.html">About</a></span></li>
+                <li><span><a href="work.html">Work</a></span></li>
+                <li><span><a href="PM.html">Parametric Design</a></span></li>
+                <li><span><a href="Grasshopper_Idea.html"
+                             style="text-decoration: line-through;">Grasshopper Idea</a></span></li>
+                <li><span><a href="contact.html">Contact</a></span></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--Content-->
+    <div class="animated bounceInUp delay-1s">
+        <div class="row" id="work-row">
+            <!--Text-->
+            <div class="row work-double-row">
+                <div class="col-md-12" id="left-hero-card-idea">
+                    <h2 class="hero-tag contact-hero-idea  fadeInLeft">12_make a brick.gh</h2>
+                    <p class="hero-des contact-des  fadeIn delay-1s">
+                        <b>Key Ideas:</b>
+                        <br><br>
+                        1. surface divide domain
+                        <br><br>
+
+                    </p>
+                </div>
+            </div>
+            <!--text_final-->
+
+            <!--panel-->
+            <div class="row work-double-row">
+                <!--key idea text-->
+                <div class="col-md-12" id="left-hero-card-idea">
+                    <h2 class="hero-tag contact-hero-key-idea fadeInLeft">Key Idea 1 : surface divide domain</h2>
+                </div>
+                <!--key idea text_final-->
+
+                <!--key idea img-->
+
+                <div class="col-md-6 col-sm-12 bounceInLeft delay-3s">
+                    <div class="work-hero-card-idea">
+                        <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/12_idea1_1.png"
+                             onclick="openModal(this)">
+                        <h1>divide domain using U and V parameter.</h1>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6 col-sm-12 bounceInLeft delay-3s">
+                    <div class="work-hero-card-idea">
+                        <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/12_idea1.png"
+                             onclick="openModal(this)">
+                        <h1>you should have use divide domian2 and isotrim.</h1>
+                    </div>
+                </div>
+
+                <div class="col-md-12" id="left-hero-card-idea">
+                    <p class="hero-des contact-des  fadeIn delay-1s">
+                        <br><br>
+                        When you project \( u \) and \( v \) onto the surface as if it were laid flat, it’s helpful to think of them as corresponding to the \( x \)- and \( y \)-axes. The components most commonly used for dividing a surface are **Divide Domain2** and **Isotrim**; these two components often work in tandem. The domain type outputs the parameters \( u \) and \( v \) \(\{interval\: 0 \text{ to } max\}\), indicating where the surface will be divided. This interval type is unique to the specific surface. By inputting this interval type into the **Isotrim** component, you generate a surface corresponding to that specific segment. The resulting surface is an untrimmed surface, not a split one, which makes it more versatile for further use.
+                    </p>
+                </div>
+                <!--key idea img_final-->
+            </div>
+            <!--panel_final-->
+            <div class="row work-double-row">
+                <!--key idea text-->
+                <div class="col-md-12" id="left-hero-card-idea">
+                    <h2 class="hero-tag contact-hero-key-idea fadeInLeft">C# Code Implementation</h2>
+                </div>
+                <!--key idea text_final-->
+                <div class="col-md-6 col-sm-12 bounceInLeft delay-3s">
+                    <div class="description">
+                        <p><strong>C# Code:</strong></p>
+                        <pre style="background-color:#2b2b2b; color:#a9b7c6; padding: 10px; border-radius: 5px;">
+<span style="color:#ffc66d;">private void</span> RunScript(List&lt;Surface&gt; x, <span
+                                style="color:#cc7832;">int</span> y, ref object A, ref object B)
+{
+    List&lt;Curve&gt; contour = <span style="color:#cc7832;">new</span> List&lt;Curve&gt;();
+
+    <span style="color:#808080;">// Iterate over each surface to extract specific edge curves</span>
+    <span style="color:#cc7832;">for</span> (<span style="color:#cc7832;">int</span> i = <span
+                                style="color:#6897bb;">0</span>; i &lt; x.Count; i++)
+    {
+        <span style="color:#808080;">// Convert surface to Brep and duplicate edge curves</span>
+        <span style="color:#cc7832;">var</span> crv = x[i].ToBrep().DuplicateEdgeCurves();
+        contour.Add(crv[<span style="color:#6897bb;">2</span>]);
+        <span style="color:#cc7832;">if</span> (i == x.Count - <span
+                                style="color:#6897bb;">1</span>) contour.Add(crv[<span style="color:#6897bb;">1</span>]);
+    }
+
+    List&lt;Curve&gt; vertical = <span style="color:#cc7832;">new</span> List&lt;Curve&gt;();
+    Curve st = contour[<span style="color:#6897bb;">0</span>];
+    <span style="color:#808080;">// Divide the start curve into points based on the count 'y'</span>
+    <span style="color:#cc7832;">var</span> pts = DividePts(st, y, <span style="color:#cc7832;">true</span>);
+
+    <span style="color:#808080;">// Loop through the contour curves to generate vertical lines</span>
+    <span style="color:#cc7832;">for</span> (<span style="color:#cc7832;">int</span> i = <span
+                                style="color:#6897bb;">0</span>; i &lt; contour.Count - <span
+                                style="color:#6897bb;">1</span>; i++)
+    {
+        <span style="color:#cc7832;">var</span> now = contour[i];
+        <span style="color:#cc7832;">var</span> nxt = contour[i + <span style="color:#6897bb;">1</span>];
+        List&lt;Point3d&gt; nxtPts = <span style="color:#cc7832;">new</span> List&lt;Point3d&gt;();
+
+        <span style="color:#808080;">// Generate corresponding points on the next curve</span>
+        <span style="color:#cc7832;">for</span> (<span style="color:#cc7832;">int</span> j = <span
+                                style="color:#6897bb;">0</span>; j &lt; pts.Count; j++)
+        {
+            <span style="color:#cc7832;">double</span> t;
+            nxt.ClosestPoint(pts[j], <span style="color:#ffc66d;">out</span> t);
+            <span style="color:#cc7832;">var</span> nxtPt = nxt.PointAt(t);
+            nxtPts.Add(nxtPt);
+
+            <span style="color:#808080;">// Add vertical lines alternately based on curve indices</span>
+            <span style="color:#cc7832;">if</span> (i % <span style="color:#6897bb;">2</span> == <span
+                                style="color:#6897bb;">0</span>)
+            {
+                <span style="color:#cc7832;">if</span> (j % <span style="color:#6897bb;">2</span> == <span
+                                style="color:#6897bb;">0</span>) vertical.Add(<span style="color:#cc7832;">new</span> Line(pts[j], nxtPt).ToNurbsCurve());
+            }
+            <span style="color:#cc7832;">else</span>
+            {
+                <span style="color:#cc7832;">if</span> (j % <span style="color:#6897bb;">2</span> == <span
+                                style="color:#6897bb;">1</span>) vertical.Add(<span style="color:#cc7832;">new</span> Line(pts[j], nxtPt).ToNurbsCurve());
+            }
+        }
+
+        pts = nxtPts;
+    }
+
+    B = vertical;
+    A = contour;
+}
+
+<span style="color:#808080;">// Method to divide a curve into a set number of points</span>
+<span style="color:#cc7832;">public static</span> List&lt;Point3d&gt; DividePts(Curve crv, <span style="color:#cc7832;">int</span> cnt, <span
+                                style="color:#cc7832;">bool</span> end)
+{
+    List&lt;Point3d&gt; ret = <span style="color:#cc7832;">new</span> List&lt;Point3d&gt;();
+    <span style="color:#cc7832;">var</span> crvT = crv.DivideByCount(cnt, end);
+    <span style="color:#cc7832;">for</span> (<span style="color:#cc7832;">int</span> i = <span
+                                style="color:#6897bb;">0</span>; i &lt; crvT.Length; i++)
+    {
+        <span style="color:#cc7832;">var</span> pt = crv.PointAt(crvT[i]);
+        ret.Add(pt);
+    }
+
+    <span style="color:#cc7832;">return</span> ret;
+}
+            </pre>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12 bounceInLeft delay-3s">
+                    <div class="work-hero-card-idea">
+                        <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/12_script3.png"
+                             onclick="openModal(this)">
+                        <h1>C# Script Code</h1>
+                    </div>
+
+                    <div class="description">
+                        <br>
+                        <p><strong>C# Code Logic Description:</strong></p>
+                        <p>1. Iterate over each surface to extract the third edge curve and the second edge curve of the
+                            last surface.</p>
+                        <br>
+                        <p>2. Divide the first curve into points based on the input count 'y'.</p>
+                        <br>
+                        <p>3. Loop through the extracted curves and generate corresponding points on the next curve.</p>
+                        <br>
+                        <p>4. Add vertical lines alternately based on curve and point indices.</p>
+                        <br>
+                        <p>5. Store the generated contour and vertical lines in output variables.</p>
+                        <br>
+                        <p>6. Use helper functions to divide curves into points for vertical line generation.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!--Text-->
+            <div class="col-md-12 work-double-row" style="text-align: center;">
+                <h1 class="hero-tag contact-hero fadeInLeft">Full Scripts</h1>
+            </div>
+
+            <div class="col-md-12 col-sm-12 work-double-row bounceInLeft delay-3s">
+                <div class="work-hero-card-idea">
+                    <a href="https://github.com/bic98/useful_grasshopper_component/blob/main/component%20files/grasshopper_skill/12_make%20a%20brick.gh">
+                        <img class="work-card-hero-img" src="assets/grasshopper_idea/Artboard%2012.png">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 work-double-row bounceInLeft delay-3s">
+                <div class="work-hero-card-idea">
+                    <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/12_script.png"
+                         onclick="openModal(this)">
+                    <h1>version 1</h1>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 work-double-row bounceInLeft delay-3s">
+                <div class="work-hero-card-idea">
+                    <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/12_script2.png"
+                         onclick="openModal(this)">
+                    <h1>version 2</h1>
+                </div>
+            </div>
+
+            <!--text_final-->
+
+            <div class="footer-full  fadeIn delay-2s">
+                <div class="social-icons">
+                    <a target="_blank" href="mailto:bic0893@naver.com"><i class="fas fa-envelope"></i></a>
+                    <a target="_blank" href="https://www.instagram.com/in_chanchan"><i class="fab fa-instagram"></i></a>
+                    <a target="_blank" href="https://blog.naver.com/bic0893"><i class="fab fa-blogger"></i></a>
+                    <a target="_blank" href="https://github.com/bic98"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- 모달 구조 -->
+        <div id="myModal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img class="modal-content" id="img01">
+        </div>
+
+        <script>
+            function openModal(element) {
+                var modal = document.getElementById("myModal");
+                var modalImg = document.getElementById("img01");
+
+                modal.style.display = "block";
+                modalImg.src = element.src; // 클릭한 이미지의 경로를 모달 이미지에 적용
+            }
+
+            function closeModal() {
+                var modal = document.getElementById("myModal");
+                modal.style.display = "none";
+            }
+        </script>
+        <div class="menu-wrap">
+            <input type="checkbox" class="toggler">
+            <div class="hamburger">
+                <div></div>
+            </div>
+            <div class="menu">
+                <div>
+                    <div>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Portfolio</a></li>
+                            <li><a href="#">Parametric Design</a></li>
+                            <li><a disabled href="#" style="text-decoration: line-through;">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>
+ 
