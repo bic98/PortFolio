@@ -1,0 +1,268 @@
+
+ <html>
+
+ <head>
+     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-159411627-1"></script>
+     <script>
+         window.dataLayer = window.dataLayer || [];
+
+         function gtag() {
+             dataLayer.push(arguments);
+         }
+
+         gtag('js', new Date());
+
+         gtag('config', 'UA-159411627-1');
+     </script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+     <link rel="stylesheet" href="style.css">
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=yes">
+     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+           integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+     <title>14_Kinetic facade Tutorial_(from adam youtube).</title>
+     <link rel="icon" type="image/x-icon" href="assets/img/my_site_logo.ico">
+ </head>
+ <body id="contact-body" style="overflow-x: hidden;">
+ <div>
+     <nav class="nav-desk">
+         <div class="nav-logo">
+
+             <a href="index.html"><img id="logo" src="assets/img/inchanchan.png"></a>
+
+         </div>
+         <div class="nav-items">
+             <ul>
+                 <li><span><a href="about.html">About</a></span></li>
+                 <li><span><a href="work.html">Work</a></span></li>
+                 <li><span><a href="PM.html">Parametric Design</a></span></li>
+                 <li><span><a href="Grasshopper_Idea.html" style="text-decoration: line-through;">Grasshopper Idea</a></span></li>
+                 <li><span><a href="contact.html">Contact</a></span></li>
+             </ul>
+         </div>
+     </nav>
+
+     <!--Content-->
+     <div class="animated bounceInUp delay-1s">
+         <div class="row" id="work-row">
+             <!--Text-->
+
+             <div class="row work-double-row">
+                 <!--key idea text-->
+                 <div class="col-md-12" id="left-hero-card-idea">
+                     <h2 class="hero-tag contact-hero-key-idea fadeInLeft">C# Code Implementation</h2>
+                 </div>
+                 <!--key idea text_final-->
+                 <div class="col-md-6 col-sm-12 bounceInLeft delay-3s">
+                     <div class="description">
+                         <p><strong>C# Code:</strong></p>
+                         <pre style="background-color:#2b2b2b; color:#a9b7c6; padding: 10px; border-radius: 5px;">
+<span style="color:#ffc66d;">#region</span> Runscript
+<span style="color:#ffc66d;">private void</span> RunScript(Rectangle3d rectangle, <span style="color:#cc7832;">double</span> yDir, <span style="color:#cc7832;">double</span> xDir, <span style="color:#cc7832;">int</span> cnt, List&lt;<span style="color:#cc7832;">double</span>&gt; shape, <span style="color:#cc7832;">double</span> depth, <span style="color:#cc7832;">double</span> interval, ref object A, ref object B)
+{
+    <span style="color:#808080;">// Convert the rectangle to a NURBS curve</span>
+    Curve crv = rectangle.ToNurbsCurve();
+
+    <span style="color:#808080;">// Create a planar surface from the curve</span>
+    Surface srf = PlanarSrf(crv);
+
+    <span style="color:#808080;">// Trim the surface based on xDir and yDir</span>
+    srf = IntervalTrim(xDir, yDir, srf);
+
+    <span style="color:#808080;">// Generate isoparametric curves along the surface</span>
+    <span style="color:#cc7832;">var</span> range = RangeInterval(<span style="color:#6897bb;">0</span>, <span style="color:#6897bb;">1</span>, cnt);
+    List&lt;Curve&gt; crves = <span style="color:#cc7832;">new</span> List&lt;Curve&gt;();
+
+    <span style="color:#cc7832;">for</span> (<span style="color:#cc7832;">int</span> i = <span style="color:#6897bb;">0</span>; i &lt; cnt; i++)
+    {
+        <span style="color:#808080;">// Extract isocurve and rotate based on shape values</span>
+        <span style="color:#cc7832;">var</span> isoC = IsoCurveU(srf, range[i]);
+        isoC.Rotate(shape[i], Vector3d.XAxis, CurveCenter(isoC));
+        crves.Add(isoC);
+    }
+
+    <span style="color:#808080;">// Create extruded surfaces from the curves</span>
+    List&lt;Brep&gt; ret = <span style="color:#cc7832;">new</span> List&lt;Brep&gt;();
+    <span style="color:#cc7832;">for</span> (<span style="color:#cc7832;">int</span> i = <span style="color:#6897bb;">0</span>; i &lt; cnt; i++)
+    {
+        <span style="color:#808080;">// Offset the curves and create ruled surfaces</span>
+        <span style="color:#cc7832;">var</span> now = crves[i];
+        <span style="color:#cc7832;">var</span> osNow = now.Offset(Rhino.Geometry.Plane.WorldYZ, depth, <span style="color:#6897bb;">0.01</span>, <span style="color:#6897bb;">0</span>);
+        <span style="color:#cc7832;">var</span> nurbSrf = NurbsSurface.CreateRuledSurface(now, osNow[<span style="color:#6897bb;">0</span>]).ToBrep().Faces[<span style="color:#6897bb;">0</span>];
+
+        <span style="color:#808080;">// Offset the surface to create a final brep</span>
+        <span style="color:#cc7832;">var</span> extSrf = Brep.CreateFromOffsetFace(nurbSrf, interval, <span style="color:#6897bb;">0.01</span>, <span style="color:#cc7832;">true</span>, <span style="color:#cc7832;">true</span>);
+        ret.Add(extSrf);
+    }
+
+    B = ret;
+    A = crves;
+}
+<span style="color:#ffc66d;">#endregion</span>
+
+<span style="color:#ffc66d;">#region</span> Additional
+
+<span style="color:#808080;">// Get the center point of a curve</span>
+<span style="color:#cc7832;">public Point3d</span> CurveCenter(Curve c)
+{
+    <span style="color:#cc7832;">var</span> arr = c.DivideByCount(<span style="color:#6897bb;">2</span>, <span style="color:#cc7832;">true</span>);
+    <span style="color:#cc7832;">var</span> ans = c.PointAt(arr[<span style="color:#6897bb;">1</span>]);
+    <span style="color:#cc7832;">return</span> ans;
+}
+
+<span style="color:#808080;">// Create a planar surface from a closed curve</span>
+<span style="color:#cc7832;">public Surface</span> PlanarSrf(Curve c)
+{
+    <span style="color:#cc7832;">string</span> log;
+    Surface ret = <span style="color:#cc7832;">null</span>;
+    <span style="color:#cc7832;">if</span> (c.IsValidWithLog(<span style="color:#ffc66d;">out</span> log) && c.IsPlanar() && c.IsClosed)
+    {
+        <span style="color:#cc7832;">var</span> tmp = Brep.CreatePlanarBreps(c, <span style="color:#6897bb;">0.01</span>);
+        ret = tmp[<span style="color:#6897bb;">0</span>].Faces[<span style="color:#6897bb;">0</span>];
+        <span style="color:#cc7832;">return</span> ret;
+    }
+    <span style="color:#cc7832;">return</span> ret;
+}
+
+<span style="color:#808080;">// Generate an isoparametric curve along the U direction</span>
+<span style="color:#cc7832;">public Curve</span> IsoCurveU(Surface srf, <span style="color:#cc7832;">double</span> uDir)
+{
+    <span style="color:#cc7832;">var</span> ret = srf.IsoCurve(<span style="color:#6897bb;">1</span>, srf.Domain(<span style="color:#6897bb;">0</span>).T0 + uDir * (srf.Domain(<span style="color:#6897bb;">0</span>).T1 - srf.Domain(<span style="color:#6897bb;">0</span>).T0));
+    <span style="color:#cc7832;">return</span> ret;
+}
+
+<span style="color:#808080;">// Generate a list of values between two numbers with a specified count</span>
+<span style="color:#cc7832;">public static</span> List&lt;<span style="color:#cc7832;">double</span>&gt; RangeInterval(<span style="color:#cc7832;">double</span> x, <span style="color:#cc7832;">double</span> y, <span style="color:#cc7832;">int</span> cnt)
+{
+    List&lt;<span style="color:#cc7832;">double</span>&gt; amp = <span style="color:#cc7832;">new</span> List&lt;<span style="color:#cc7832;">double</span>&gt;();
+    <span style="color:#cc7832;">if</span> (cnt == <span style="color:#6897bb;">1</span>) <span style="color:#cc7832;">return</span> amp;
+    <span style="color:#cc7832;">double</span> gap = (y - x) / (cnt - <span style="color:#6897bb;">1</span>);
+    <span style="color:#cc7832;">for</span> (<span style="color:#cc7832;">int</span> i = <span style="color:#6897bb;">0</span>; i &lt; cnt; i++)
+    {
+        amp.Add(x + gap * i);
+    }
+    <span style="color:#cc7832;">return</span> amp;
+}
+
+<span style="color:#808080;">// Trim a surface based on x and y directions</span>
+<span style="color:#cc7832;">public Surface</span> IntervalTrim(<span style="color:#cc7832;">double</span> xDir, <span style="color:#cc7832;">double</span> yDir, Surface srf)
+{
+    <span style="color:#cc7832;">return</span> srf.Trim(<span style="color:#cc7832;">new</span> Interval(srf.Domain(<span style="color:#6897bb;">0</span>).T1 * xDir, srf.Domain(<span style="color:#6897bb;">0</span>).T1),
+                      <span style="color:#cc7832;">new</span> Interval(srf.Domain(<span style="color:#6897bb;">1</span>).T1 * yDir, srf.Domain(<span style="color:#6897bb;">1</span>).T1));
+}
+<span style="color:#ffc66d;">#endregion</span>
+            </pre>
+                     </div>
+                 </div>
+
+                 <div class="col-md-6 col-sm-12 bounceInLeft delay-3s">
+                     <div class="work-hero-card-idea">
+                         <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/14_script.png" onclick="openModal(this)">
+                         <h1>C# Script Code</h1>
+                     </div>
+
+                     <div class="description">
+                         <br>
+                         <p><strong>C# Code Logic Description:</strong></p>
+                         <p>1. Convert the input rectangle to a NURBS curve and generate a planar surface.</p>
+                         <br>
+                         <p>2. Trim the planar surface based on the specified x and y directions.</p>
+                         <br>
+                         <p>3. Generate isoparametric curves along the surface at intervals determined by the `RangeInterval` function.</p>
+                         <br>
+                         <p>4. Rotate each isocurve around the X-axis based on the corresponding shape value.</p>
+                         <br>
+                         <p>5. Offset each curve to create a ruled surface and extrude it to generate the final Brep.</p>
+                         <br>
+                         <p>6. Store the generated curves in output `A` and the extruded surfaces in output `B`.</p>
+                     </div>
+                 </div>
+             </div>
+
+
+
+             <!--Text-->
+             <div class="col-md-12 work-double-row" style="text-align: center;">
+                 <h1 class="hero-tag contact-hero fadeInLeft">Full Scripts</h1>
+             </div>
+
+             <div class="col-md-12 col-sm-12 work-double-row bounceInLeft delay-3s">
+                 <div class="work-hero-card-idea">
+                     <a href="https://github.com/bic98/useful_grasshopper_component/blob/main/component%20files/grasshopper_skill/14_Kinetic%20facade%20Tutorial_(from%20adam%20youtube).gh">
+                         <img class="work-card-hero-img" src="assets/grasshopper_idea/Artboard%2014.png">
+                     </a>
+                 </div>
+             </div>
+
+             <div class="col-md-12 col-sm-12 work-double-row bounceInLeft delay-3s">
+                 <div class="work-hero-card-idea">
+                     <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/14_script.png"
+                          onclick="openModal(this)">
+                     <h1>version 1</h1>
+                 </div>
+             </div>
+
+             <div class="col-md-12 col-sm-12 work-double-row bounceInLeft delay-3s">
+                 <div class="work-hero-card-idea">
+                     <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/14_script2.png"
+                          onclick="openModal(this)">
+                     <h1>version 2</h1>
+                 </div>
+             </div>
+
+             <!--text_final-->
+
+             <div class="footer-full  fadeIn delay-2s">
+                 <div class="social-icons">
+                     <a target="_blank" href="mailto:bic0893@naver.com"><i class="fas fa-envelope"></i></a>
+                     <a target="_blank" href="https://www.instagram.com/in_chanchan"><i class="fab fa-instagram"></i></a>
+                     <a target="_blank" href="https://blog.naver.com/bic0893"><i class="fab fa-blogger"></i></a>
+                     <a target="_blank" href="https://github.com/bic98"><i class="fab fa-github"></i></a>
+                 </div>
+             </div>
+         </div>
+             <!-- 모달 구조 -->
+         <div id="myModal" class="modal">
+             <span class="close" onclick="closeModal()">&times;</span>
+             <img class="modal-content" id="img01">
+         </div>
+
+         <script>
+             function openModal(element) {
+                 var modal = document.getElementById("myModal");
+                 var modalImg = document.getElementById("img01");
+
+                 modal.style.display = "block";
+                 modalImg.src = element.src; // 클릭한 이미지의 경로를 모달 이미지에 적용
+             }
+
+             function closeModal() {
+                 var modal = document.getElementById("myModal");
+                 modal.style.display = "none";
+             }
+         </script>
+         <div class="menu-wrap">
+             <input type="checkbox" class="toggler">
+             <div class="hamburger">
+                 <div></div>
+             </div>
+             <div class="menu">
+                 <div>
+                     <div>
+                         <ul>
+                             <li><a href="index.html">Home</a></li>
+                             <li><a href="#">About</a></li>
+                             <li><a href="#">Portfolio</a></li>
+                             <li><a href="#">Parametric Design</a></li>
+                             <li><a disabled href="#" style="text-decoration: line-through;">Contact</a></li>
+                         </ul>
+                     </div>
+                 </div>
+             </div>
+         </div>
+ </body>
+ </html>
+ 
