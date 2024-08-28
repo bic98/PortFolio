@@ -1,0 +1,514 @@
+<html>
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-159411627-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-159411627-1');
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=yes">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <title>15_making a gable roof.gh</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/my_site_logo.ico">
+</head>
+<body id="contact-body" style="overflow-x: hidden;">
+<div>
+    <nav class="nav-desk">
+        <div class="nav-logo">
+
+            <a href="index.html"><img id="logo" src="assets/img/inchanchan.png"></a>
+
+        </div>
+        <div class="nav-items">
+            <ul>
+                <li><span><a href="about.html">About</a></span></li>
+                <li><span><a href="work.html">Work</a></span></li>
+                <li><span><a href="PM.html">Parametric Design</a></span></li>
+                <li><span><a href="Grasshopper_Idea.html"
+                             style="text-decoration: line-through;">Grasshopper Idea</a></span></li>
+                <li><span><a href="contact.html">Contact</a></span></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--Content-->
+    <div class="animated bounceInUp delay-1s">
+        <div class="row" id="work-row">
+            <!--Text-->
+            <div class="row work-double-row">
+                <div class="col-md-12" id="left-hero-card-idea">
+                    <h2 class="hero-tag contact-hero-idea  fadeInLeft">15_making a gable roof.gh</h2>
+                    <p class="hero-des contact-des  fadeIn delay-1s">
+                        <b>Key Ideas:</b>
+                        <br><br>
+                        1. sort object by keys
+                        <br><br>
+
+                    </p>
+                </div>
+            </div>
+            <!--text_final-->
+
+            <!--panel-->
+            <div class="row work-double-row">
+                <!--key idea text-->
+                <div class="col-md-12" id="left-hero-card-idea">
+                    <h2 class="hero-tag contact-hero-key-idea fadeInLeft">Key Idea 1 : sort object by keys</h2>
+                </div>
+                <!--key idea text_final-->
+
+                <!--key idea img-->
+
+                <div class="col-md-6 col-sm-12 bounceInLeft delay-3s">
+                    <div class="work-hero-card-idea">
+                        <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/15_idea1_1.png"
+                             onclick="openModal(this)">
+                        <h1>main idea</h1>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6 col-sm-12 bounceInLeft delay-3s">
+                    <div class="work-hero-card-idea">
+                        <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/15_idea1.png"
+                             onclick="openModal(this)">
+                        <h1>explain the component</h1>
+                    </div>
+                </div>
+
+                <div class="col-md-12" id="left-hero-card-idea">
+                    <p class="hero-des contact-des  fadeIn delay-1s">
+                        <br><br>
+                        I have illustrated the operation of the component above. Now, why do we offset the curve inward
+                        and use its length as a key for alignment?First, if we think about offsetting inward, the
+                        shortest line will become even shorter, while the length of the longer lines will change very
+                        little. In other words, the shorter a longer line is initially, the greater the rate of change
+                        in its final length after offsetting. Therefore, if you want to select the two shortest lines,
+                        you can choose the one that becomes the shortest after being offset inward. This is a technique
+                        that can be quite useful at times, so it is worth remembering.
+                    </p>
+                </div>
+                <!--key idea img_final-->
+            </div>
+            <!--panel_final-->
+            <div class="row work-double-row">
+                <!--key idea text-->
+                <div class="col-md-12" id="left-hero-card-idea">
+                    <h2 class="hero-tag contact-hero-key-idea fadeInLeft">C# Code Implementation</h2>
+                </div>
+                <!--key idea text_final-->
+                <div class="col-md-6 col-sm-12 bounceInLeft delay-3s">
+                    <div class="description">
+                        <p><strong>C# Code:</strong></p>
+                        <pre style="background-color:#2b2b2b; color:#a9b7c6; padding: 10px; border-radius: 5px;">
+<span style="color:#ffc66d;">private void</span> RunScript(List&lt;Curve&gt; x, ref object A, ref object B)
+{
+    List&lt;Curve&gt; pureCurve = <span style="color:#cc7832;">new</span> List&lt;Curve&gt;();
+    List&lt;List&lt;Point3d&gt;&gt; purePts = <span style="color:#cc7832;">new</span> List&lt;List&lt;Point3d&gt;&gt;();
+
+    <span style="color:#808080;">// Iterate over each curve to find discontinuity points</span>
+    <span style="color:#cc7832;">for</span> (<span style="color:#cc7832;">int</span> i = <span
+                                style="color:#6897bb;">0</span>; i &lt; x.Count; i++)
+    {
+        <span style="color:#808080;">// Get points of discontinuity</span>
+        <span style="color:#cc7832;">var</span> pts = PureDiscontinuity(x[i]);
+        purePts.Add(pts);
+
+        <span style="color:#808080;">// Close the curve by adding the first point to the end</span>
+        pts.Add(pts[<span style="color:#6897bb;">0</span>]);
+
+        <span style="color:#808080;">// Create a control point curve from the discontinuity points</span>
+        <span style="color:#cc7832;">var</span> crv = Curve.CreateControlPointCurve(pts, <span
+                                style="color:#6897bb;">1</span>);
+        pureCurve.Add(crv);
+    }
+
+    <span style="color:#808080;">// Output the curves and discontinuity points as a DataTree</span>
+    A = pureCurve;
+    B = MakeDataTree2D(purePts);
+}
+
+<span style="color:#808080;">// Function to create a DataTree from a 2D list</span>
+<span style="color:#cc7832;">public static DataTree&lt;T&gt;</span> MakeDataTree2D&lt;T&gt;(List&lt;List&lt;T&gt;&gt; ret)
+{
+    DataTree&lt;T&gt; tree = <span style="color:#cc7832;">new</span> DataTree&lt;T&gt;();
+    <span style="color:#cc7832;">for</span> (<span style="color:#cc7832;">int</span> i = <span
+                                style="color:#6897bb;">0</span>; i &lt; ret.Count; i++)
+    {
+        GH_Path path = <span style="color:#cc7832;">new</span> GH_Path(i);
+        <span style="color:#cc7832;">for</span> (<span style="color:#cc7832;">int</span> j = <span
+                                style="color:#6897bb;">0</span>; j &lt; ret[i].Count; j++)
+        {
+            tree.Add(ret[i][j], path);
+        }
+    }
+    <span style="color:#cc7832;">return</span> tree;
+}
+
+<span style="color:#808080;">// Function to find discontinuity points in a curve</span>
+<span style="color:#cc7832;">public List&lt;Point3d&gt;</span> PureDiscontinuity(Curve x)
+{
+    <span style="color:#cc7832;">var</span> seg = x.DuplicateSegments();
+    List&lt;Point3d&gt; pts = <span style="color:#cc7832;">new</span> List&lt;Point3d&gt;();
+
+    <span style="color:#808080;">// Loop through the segments to find where the curve changes direction</span>
+    <span style="color:#cc7832;">for</span> (<span style="color:#cc7832;">int</span> i = <span
+                                style="color:#6897bb;">0</span>; i &lt; seg.Length - <span
+                                style="color:#6897bb;">1</span>; i++)
+    {
+        <span style="color:#cc7832;">var</span> nowC = seg[i];
+        <span style="color:#cc7832;">var</span> nxtC = seg[i + <span style="color:#6897bb;">1</span>];
+        <span style="color:#cc7832;">var</span> nowV = nowC.PointAtEnd - nowC.PointAtStart;
+        <span style="color:#cc7832;">var</span> nxtV = nxtC.PointAtEnd - nxtC.PointAtStart;
+        nowV.Unitize();
+        nxtV.Unitize();
+        <span style="color:#cc7832;">double</span> dp = Math.Abs(Vector3d.Multiply(nowV, nxtV));
+
+        <span style="color:#808080;">// Check for discontinuity at the beginning of the curve</span>
+        <span style="color:#cc7832;">if</span> (i == <span style="color:#6897bb;">0</span>)
+        {
+            <span style="color:#cc7832;">var</span> prevC = seg[seg.Length - <span style="color:#6897bb;">1</span>];
+            <span style="color:#cc7832;">var</span> prevV = prevC.PointAtEnd - prevC.PointAtStart;
+            prevV.Unitize();
+            <span style="color:#cc7832;">if</span> (Math.Abs(Vector3d.Multiply(prevV, nowV)) &lt; <span
+                                style="color:#6897bb;">0.99</span>) pts.Add(nowC.PointAtStart);
+        }
+
+        <span style="color:#808080;">// Add points of discontinuity</span>
+        <span style="color:#cc7832;">if</span> (dp &lt; <span style="color:#6897bb;">0.99</span>)
+        {
+            pts.Add(nowC.PointAtEnd);
+        }
+    }
+
+    <span style="color:#808080;">// Add the end point if the curve is not closed</span>
+    <span style="color:#cc7832;">if</span> (!x.IsClosed) pts.Add(seg[seg.Length - <span style="color:#6897bb;">1</span>].PointAtEnd);
+    <span style="color:#cc7832;">return</span> pts;
+}
+            </pre>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12 bounceInLeft delay-3s">
+                    <div class="work-hero-card-idea">
+                        <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/15_script2.png"
+                             onclick="openModal(this)">
+                        <h1>C# Script Code</h1>
+                    </div>
+
+                    <div class="description">
+                        <br>
+                        <p><strong>C# Code Logic Description:</strong></p>
+                        <p>1. **Start Iterating Curves**: The `RunScript` function starts by iterating through each
+                            curve in the input list `x` to find points of discontinuity.</p>
+                        <br>
+                        <p>2. **Calculate Discontinuity Points**: The `PureDiscontinuity` function identifies points
+                            where the curve changes direction by comparing the end points of each segment and
+                            calculating the dot product of their direction vectors.</p>
+                        <br>
+                        <p>3. **Close the Curve**: The first point of the discontinuity list is added to the end to
+                            close the curve.</p>
+                        <br>
+                        <p>4. **Create Control Point Curve**: A new NURBS curve is created using the identified
+                            discontinuity points as control points.</p>
+                        <br>
+                        <p>5. **Add to Curve List**: The generated curve is added to the `pureCurve` list.</p>
+                        <br>
+                        <p>6. **Convert to DataTree**: The `MakeDataTree2D` function converts the 2D list of
+                            discontinuity points to a DataTree format.</p>
+                        <br>
+                        <p>7. **Set Outputs**: The newly generated curves are stored in output variable `A` and the
+                            DataTree of points is stored in `B`.</p>
+                        <br>
+                        <p>8. **Return Results**: The `RunScript` function returns the completed curves and the DataTree
+                            of discontinuity points.</p>
+                        <br>
+                        <p>9. **Check Curve Validity**: Ensure that all curves are valid and handle any errors if
+                            discontinuity points are not found.</p>
+                        <br>
+                        <p>10. **Optimize Efficiency**: Cache repeated calculations and use loop indexing efficiently to
+                            optimize performance.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row work-double-row">
+                <!--key idea text-->
+                <div class="col-md-12" id="left-hero-card-idea">
+                    <h2 class="hero-tag contact-hero-key-idea fadeInLeft">C# Code Implementation</h2>
+                </div>
+                <!--key idea text_final-->
+                <div class="col-md-6 col-sm-12 bounceInLeft delay-3s">
+                    <div class="description">
+                        <p><strong>C# Code:</strong></p>
+                        <pre style="background-color:#2b2b2b; color:#a9b7c6; padding: 10px; border-radius: 5px;">
+<span style="color:#ffc66d;">private void</span> RunScript(DataTree&lt;Curve&gt; x, <span
+                                style="color:#cc7832;">double</span> y, <span
+                                style="color:#cc7832;">double</span> z, <span style="color:#cc7832;">double</span> u, ref object A)
+{
+    <span style="color:#808080;">// Convert DataTree to a nested list of curves</span>
+    <span style="color:#cc7832;">var</span> li = ConvertTreeToNestedList(x);
+    List&lt;List&lt;Curve&gt;&gt; ret = <span style="color:#cc7832;">new</span> List&lt;List&lt;Curve&gt;&gt;();
+
+    <span style="color:#808080;">// Iterate through each pair of curves</span>
+    <span style="color:#cc7832;">for</span> (<span style="color:#cc7832;">int</span> i = <span
+                                style="color:#6897bb;">0</span>; i &lt; li.Count; i++)
+    {
+        <span style="color:#808080;">// Get the current and next curve</span>
+        <span style="color:#cc7832;">var</span> now = li[i][<span style="color:#6897bb;">0</span>];
+        <span style="color:#cc7832;">var</span> nxt = li[i][<span style="color:#6897bb;">1</span>];
+
+        <span style="color:#808080;">// Get the discontinuity points of the current and next curves</span>
+        <span style="color:#cc7832;">var</span> nowP = Discontinuity(now);
+        <span style="color:#cc7832;">var</span> nxtP = Discontinuity(nxt);
+        nxtP.Reverse();
+        List&lt;Point3d&gt; inlinePts = <span style="color:#cc7832;">new</span> List&lt;Point3d&gt;();
+
+        <span style="color:#808080;">// Create lines between corresponding points on the curves</span>
+        <span style="color:#cc7832;">for</span> (<span style="color:#cc7832;">int</span> j = <span
+                                style="color:#6897bb;">0</span>; j &lt; nowP.Count; j++)
+        {
+            Curve tmp = <span style="color:#cc7832;">new</span> Line(nowP[j], nxtP[j]).ToNurbsCurve();
+            Point3d k = tmp.PointAt(y * tmp.Domain.T1);
+            inlinePts.Add(k);
+        }
+
+        <span style="color:#808080;">// Create a control point curve from the inline points</span>
+        <span style="color:#cc7832;">var</span> mid = Curve.CreateControlPointCurve(inlinePts, <span
+                                style="color:#6897bb;">1</span>);
+        <span style="color:#cc7832;">var</span> centerPointMid = MovePt(CurveCenter(mid), Vector3d.ZAxis, z);
+        mid = MoveOrientPoint(mid, CurveCenter(mid), centerPointMid);
+
+        <span style="color:#808080;">// Adjust positions of the current and next curves</span>
+        <span style="color:#cc7832;">var</span> dnNow = MoveOrientPoint(now, CurveCenter(now), MovePt(CurveCenter(now), Vector3d.ZAxis, -u));
+        <span style="color:#cc7832;">var</span> dnNxt = MoveOrientPoint(nxt, CurveCenter(nxt), MovePt(CurveCenter(nxt), Vector3d.ZAxis, -u));
+
+        List&lt;Curve&gt; threeCurve = <span style="color:#cc7832;">new</span> List&lt;Curve&gt; { dnNow, now, mid, nxt, dnNxt };
+        ret.Add(threeCurve);
+    }
+
+    <span style="color:#808080;">// Convert the list of curves to a DataTree format</span>
+    A = MakeDataTree2D(ret);
+}
+
+<span style="color:#808080;">// Helper function to move and orient a point or curve</span>
+<span style="color:#cc7832;">public T MoveOrientPoint&lt;T&gt;(T obj, Point3d now, Point3d nxt) <span
+        style="color:#cc7832;">where</span> T : GeometryBase
+{
+    T copy = (T) obj.Duplicate();
+    Plane baseNow = Plane.WorldXY;
+    Plane st = <span style="color:#cc7832;">new</span> Plane(now, baseNow.XAxis, baseNow.YAxis);
+    Plane en = <span style="color:#cc7832;">new</span> Plane(nxt, baseNow.XAxis, baseNow.YAxis);
+    Transform orient = Transform.PlaneToPlane(st, en);
+    copy.Transform(orient);
+    <span style="color:#cc7832;">return</span> copy;
+}
+
+<span style="color:#808080;">// Function to move a point along a vector</span>
+<span style="color:#cc7832;">public Point3d</span> MovePt(Point3d p, Vector3d v, <span
+            style="color:#cc7832;">double</span> amp)
+{
+    v.Unitize();
+    Transform move = Transform.Translation(v * amp);
+    p.Transform(move);
+    <span style="color:#cc7832;">return</span> p;
+}
+
+<span style="color:#808080;">// Function to find the center of a curve</span>
+<span style="color:#cc7832;">public Point3d</span> CurveCenter(Curve c)
+{
+    <span style="color:#cc7832;">var</span> arr = c.DivideByCount(<span style="color:#6897bb;">2</span>, <span
+            style="color:#cc7832;">true</span>);
+    <span style="color:#cc7832;">var</span> ans = c.PointAt(arr[<span style="color:#6897bb;">1</span>]);
+    <span style="color:#cc7832;">return</span> ans;
+}
+
+<span style="color:#808080;">// Function to create a DataTree from a 2D list</span>
+<span style="color:#cc7832;">public static DataTree&lt;T&gt;</span> MakeDataTree2D&lt;T&gt;(List&lt;List&lt;T&gt;&gt; ret)
+{
+    DataTree&lt;T&gt; tree = <span style="color:#cc7832;">new</span> DataTree&lt;T&gt;();
+    <span style="color:#cc7832;">for</span> (<span style="color:#cc7832;">int</span> i = <span
+            style="color:#6897bb;">0</span>; i &lt; ret.Count; i++)
+    {
+        GH_Path path = <span style="color:#cc7832;">new</span> GH_Path(i);
+        <span style="color:#cc7832;">for</span> (<span style="color:#cc7832;">int</span> j = <span
+            style="color:#6897bb;">0</span>; j &lt; ret[i].Count; j++)
+        {
+            tree.Add(ret[i][j], path);
+        }
+    }
+    <span style="color:#cc7832;">return</span> tree;
+}
+
+<span style="color:#808080;">// Function to find discontinuity points in a curve</span>
+<span style="color:#cc7832;">public List&lt;Point3d&gt;</span> Discontinuity(Curve x)
+{
+    <span style="color:#cc7832;">var</span> seg = x.DuplicateSegments();
+    List&lt;Point3d&gt; pts = <span style="color:#cc7832;">new</span> List&lt;Point3d&gt;();
+
+    <span style="color:#808080;">// Loop through segments to collect start and end points</span>
+    <span style="color:#cc7832;">for</span> (<span style="color:#cc7832;">int</span> i = <span
+            style="color:#6897bb;">0</span>; i &lt; seg.Length; i++)
+    {
+        <span style="color:#cc7832;">if</span> (i == <span style="color:#6897bb;">0</span>) pts.Add(seg[i].PointAtStart);
+        pts.Add(seg[i].PointAtEnd);
+    }
+
+    <span style="color:#808080;">// Remove the last point if the curve is closed</span>
+    <span style="color:#cc7832;">if</span> (x.IsClosed) pts.RemoveAt(pts.Count - <span style="color:#6897bb;">1</span>);
+    <span style="color:#cc7832;">return</span> pts;
+}
+
+<span style="color:#808080;">// Function to convert a DataTree to a nested list</span>
+<span style="color:#cc7832;">public List&lt;List&lt;T&gt;&gt;</span> ConvertTreeToNestedList&lt;T&gt;(DataTree&lt;T&gt; tree)
+{
+    List&lt;List&lt;T&gt;&gt; nestedList = <span style="color:#cc7832;">new</span> List&lt;List&lt;T&gt;&gt;();
+    <span style="color:#cc7832;">foreach</span> (GH_Path path <span style="color:#cc7832;">in</span> tree.Paths)
+    {
+        List&lt;T&gt; subList = <span style="color:#cc7832;">new</span> List&lt;T&gt;(tree.Branch(path));
+        nestedList.Add(subList);
+    }
+    <span style="color:#cc7832;">return</span> nestedList;
+}
+            </pre>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12 bounceInLeft delay-3s">
+                    <div class="work-hero-card-idea">
+                        <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/15_script3.png"
+                             onclick="openModal(this)">
+                        <h1>C# Script Code</h1>
+                    </div>
+
+                    <div class="description">
+                        <br>
+                        <p><strong>C# Code Logic Description:</strong></p>
+                        <p>1. **Convert DataTree to Nested List**: Convert the input `DataTree
+                            <Curve>` to a nested list format to facilitate easier processing.
+                        </p>
+                        <br>
+                        <p>2. **Iterate Over Curve Pairs**: Iterate through each pair of curves in the nested list to
+                            process them sequentially.</p>
+                        <br>
+                        <p>3. **Find Discontinuity Points**: Use the `Discontinuity` function to identify the points
+                            where each curve has breaks or sharp changes in direction.</p>
+                        <br>
+                        <p>4. **Reverse Next Curve Points**: Reverse the discontinuity points of the next curve to align
+                            with the current curve's points for processing.</p>
+                        <br>
+                        <p>5. **Create Intermediate Points**: For each corresponding pair of discontinuity points on the
+                            curves, generate intermediate points by interpolating with a factor `y`.</p>
+                        <br>
+                        <p>6. **Generate Mid Curve**: Create a new control point curve (mid curve) from the interpolated
+                            intermediate points.</p>
+                        <br>
+                        <p>7. **Move Mid Curve**: Adjust the mid curve by moving it upwards along the Z-axis by a
+                            specified amount `z`.</p>
+                        <br>
+                        <p>8. **Move Curves Down**: Adjust the positions of the current and next curves by moving them
+                            down along the Z-axis by a distance `u`.</p>
+                        <br>
+                        <p>9. **Combine Adjusted Curves**: Combine the adjusted curves (`dnNow`, `now`, `mid`, `nxt`,
+                            `dnNxt`) into a list and add to the results list.</p>
+                        <br>
+                        <p>10. **Convert to DataTree**: Convert the list of curves into a `DataTree` format using
+                            `MakeDataTree2D` for structured output.</p>
+                        <br>
+                        <p>11. **Return Results**: Assign the final `DataTree` of curves to the output variable `A` for
+                            further use or visualization.</p>
+                        <br>
+                        <p>12. **Helper Functions**: Utilize helper functions like `MoveOrientPoint`, `MovePt`, and
+                            `CurveCenter` to handle geometric transformations and point manipulations efficiently.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!--Text-->
+            <div class="col-md-12 work-double-row" style="text-align: center;">
+                <h1 class="hero-tag contact-hero fadeInLeft">Full Scripts</h1>
+            </div>
+
+            <div class="col-md-12 col-sm-12 work-double-row bounceInLeft delay-3s">
+                <div class="work-hero-card-idea">
+                    <a href="https://github.com/bic98/useful_grasshopper_component/blob/main/component%20files/grasshopper_skill/15_making%20a%20gable%20roof.gh">
+                        <img class="work-card-hero-img" src="assets/grasshopper_idea/Artboard%2015.png">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 work-double-row bounceInLeft delay-3s">
+                <div class="work-hero-card-idea">
+                    <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/15_script.png"
+                         onclick="openModal(this)">
+                    <h1>version 1</h1>
+                </div>
+            </div>
+
+
+            <!--text_final-->
+
+            <div class="footer-full  fadeIn delay-2s">
+                <div class="social-icons">
+                    <a target="_blank" href="mailto:bic0893@naver.com"><i class="fas fa-envelope"></i></a>
+                    <a target="_blank" href="https://www.instagram.com/in_chanchan"><i class="fab fa-instagram"></i></a>
+                    <a target="_blank" href="https://blog.naver.com/bic0893"><i class="fab fa-blogger"></i></a>
+                    <a target="_blank" href="https://github.com/bic98"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- 모달 구조 -->
+        <div id="myModal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img class="modal-content" id="img01">
+        </div>
+
+        <script>
+            function openModal(element) {
+                var modal = document.getElementById("myModal");
+                var modalImg = document.getElementById("img01");
+
+                modal.style.display = "block";
+                modalImg.src = element.src; // 클릭한 이미지의 경로를 모달 이미지에 적용
+            }
+
+            function closeModal() {
+                var modal = document.getElementById("myModal");
+                modal.style.display = "none";
+            }
+        </script>
+        <div class="menu-wrap">
+            <input type="checkbox" class="toggler">
+            <div class="hamburger">
+                <div></div>
+            </div>
+            <div class="menu">
+                <div>
+                    <div>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Portfolio</a></li>
+                            <li><a href="#">Parametric Design</a></li>
+                            <li><a disabled href="#" style="text-decoration: line-through;">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>
+ 
