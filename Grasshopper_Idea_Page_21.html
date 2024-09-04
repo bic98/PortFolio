@@ -1,0 +1,300 @@
+<html>
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-159411627-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-159411627-1');
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=yes">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <title>21_Draw a zigzag polygon centered around a reference circle.</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/my_site_logo.ico">
+</head>
+<body id="contact-body" style="overflow-x: hidden;">
+<div>
+    <nav class="nav-desk">
+        <div class="nav-logo">
+
+            <a href="index.html"><img id="logo" src="assets/img/inchanchan.png"></a>
+
+        </div>
+        <div class="nav-items">
+            <ul>
+                <li><span><a href="about.html">About</a></span></li>
+                <li><span><a href="work.html">Work</a></span></li>
+                <li><span><a href="PM.html">Parametric Design</a></span></li>
+                <li><span><a href="Grasshopper_Idea.html"
+                             style="text-decoration: line-through;">Grasshopper Idea</a></span></li>
+                <li><span><a href="contact.html">Contact</a></span></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--Content-->
+    <div class="animated bounceInUp delay-1s">
+        <div class="row" id="work-row">
+            <!--Text-->
+            <div class="row work-double-row">
+                <div class="col-md-12" id="left-hero-card-idea">
+                    <h2 class="hero-tag contact-hero-idea  fadeInLeft">21_Draw a zigzag polygon centered around a
+                        reference circle.</h2>
+                    <p class="hero-des contact-des  fadeIn delay-1s">
+                        <b>Key Ideas:</b>
+                        <br><br>
+                        1. Mountain range Interval
+                        <br><br>
+
+                    </p>
+                </div>
+            </div>
+            <!--text_final-->
+
+            <div class="row work-double-row">
+                <!--key idea text-->
+                <div class="col-md-12" id="left-hero-card-idea">
+                    <h2 class="hero-tag contact-hero-key-idea fadeInLeft">C# Code Implementation</h2>
+                </div>
+                <!--key idea text_final-->
+                <div class="col-md-6 col-sm-12 bounceInLeft delay-3s">
+                    <div class="description">
+                        <p><strong>C# Code:</strong></p>
+                        <pre style="background-color:#2b2b2b; color:#a9b7c6; padding: 10px; border-radius: 5px;">
+<span style="color:#ffc66d;">private void</span> RunScript(<span style="color:#cc7832;">int</span> sz, <span
+                                style="color:#cc7832;">int</span> cnt, <span
+                                style="color:#cc7832;">double</span> x, <span style="color:#cc7832;">double</span> y, ref object A, ref object B)
+{
+    <span style="color:#808080;">// Create a circle curve centered at the origin with radius sz</span>
+    Curve cir = <span style="color:#cc7832;">new</span> Circle(Point3d.Origin, sz).ToNurbsCurve();
+
+    <span style="color:#808080;">// Generate horizontal planes along the circle curve</span>
+    List&lt;Plane&gt; pl = HorizontalPlanes(cir, cnt * <span style="color:#6897bb;">2</span>, <span
+                                style="color:#cc7832;">true</span>);
+    List&lt;Point3d&gt; plOrigin = <span style="color:#cc7832;">new</span> List&lt;Point3d&gt;();
+
+    <span style="color:#808080;">// Calculate interval values based on input parameters</span>
+    <span style="color:#cc7832;">var</span> interval = RangeInterval(x, y, (cnt + <span style="color:#6897bb;">1</span>) / <span
+                                style="color:#6897bb;">2</span>);
+    <span style="color:#cc7832;">var</span> reverseInterval = <span style="color:#cc7832;">new</span> List&lt;<span
+                                style="color:#cc7832;">double</span>&gt;(interval);
+    reverseInterval.Reverse();
+
+    <span style="color:#808080;">// Adjust the interval list for even/odd count scenarios</span>
+    <span style="color:#cc7832;">if</span>((cnt &amp; <span style="color:#6897bb;">1</span>) == <span
+                                style="color:#6897bb;">1</span>) interval.RemoveAt(interval.Count  - <span
+                                style="color:#6897bb;">1</span>);
+    interval.AddRange(reverseInterval);
+
+    <span style="color:#808080;">// Adjust plane origins based on calculated intervals</span>
+    <span style="color:#cc7832;">for</span> (<span style="color:#cc7832;">int</span> i = <span
+                                style="color:#6897bb;">0</span>; i &lt; pl.Count; i++)
+    {
+        <span style="color:#cc7832;">var</span> now = pl[i].Origin;
+        <span style="color:#cc7832;">if</span> ((i &amp; <span style="color:#6897bb;">1</span>) == <span
+                                style="color:#6897bb;">1</span>)
+        {
+            <span style="color:#cc7832;">var</span> nxt = MovePt(now, pl[i].YAxis, interval[i / <span
+                                style="color:#6897bb;">2</span>]);
+            now = nxt;
+        }
+        plOrigin.Add(now);
+    }
+
+    <span style="color:#808080;">// Set output variables</span>
+    B = interval;
+    A = plOrigin;
+}
+
+<span style="color:#808080;">// Function to move a point along a vector by a specified amount</span>
+<span style="color:#cc7832;">public Point3d</span> MovePt(Point3d p, Vector3d v, <span
+                                style="color:#cc7832;">double</span> amp)
+{
+    v.Unitize();
+    Transform move = Transform.Translation(v * amp);
+    p.Transform(move);
+    <span style="color:#cc7832;">return</span> p;
+}
+
+<span style="color:#808080;">// Function to generate a range of interval values between x and y</span>
+<span style="color:#cc7832;">public static List&lt;double&gt;</span> RangeInterval(<span
+                                style="color:#cc7832;">double</span> x, <span
+                                style="color:#cc7832;">double</span> y, <span style="color:#cc7832;">int</span> cnt)
+{
+    List&lt;<span style="color:#cc7832;">double</span>&gt; amp = <span style="color:#cc7832;">new</span> List&lt;<span
+                                style="color:#cc7832;">double</span>&gt;();
+    <span style="color:#cc7832;">if</span> (cnt == <span style="color:#6897bb;">1</span>) <span style="color:#cc7832;">return</span> amp;
+    <span style="color:#cc7832;">double</span> gap = (y - x) / (cnt - <span style="color:#6897bb;">1</span>);
+    <span style="color:#cc7832;">for</span> (<span style="color:#cc7832;">int</span> i = <span
+                                style="color:#6897bb;">0</span>; i &lt; cnt; i++)
+    {
+        amp.Add(x + gap * i);
+    }
+
+    <span style="color:#cc7832;">return</span> amp;
+}
+
+<span style="color:#808080;">// Function to generate horizontal planes along a curve</span>
+<span style="color:#cc7832;">public static List&lt;Plane&gt;</span> HorizontalPlanes(Curve x, <span
+                                style="color:#cc7832;">int</span> cnt, <span style="color:#cc7832;">bool</span> end)
+{
+    <span style="color:#cc7832;">var</span> t = x.DivideByCount(cnt, end);
+    List&lt;Plane&gt; li = <span style="color:#cc7832;">new</span> List&lt;Plane&gt;();
+    <span style="color:#cc7832;">for</span> (<span style="color:#cc7832;">int</span> i = <span
+                                style="color:#6897bb;">0</span>; i &lt; t.Length; i++)
+    {
+        <span style="color:#cc7832;">var</span> tan = x.TangentAt(t[i]);
+        Plane p = <span style="color:#cc7832;">new</span> Plane(x.PointAt(t[i]), tan, Vector3d.CrossProduct(Vector3d.ZAxis, tan));
+        li.Add(p);
+    }
+
+    <span style="color:#cc7832;">return</span> li;
+}
+            </pre>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12 bounceInLeft delay-3s">
+                    <div class="work-hero-card-idea">
+                        <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/21_script2.png"
+                             onclick="openModal(this)">
+                        <h1>C# Script Code</h1>
+                    </div>
+
+                    <div class="description">
+                        <br>
+                        <p><strong>C# Code Logic Description:</strong></p>
+                        <p>1. **Create a Circular Curve**: Initialize a circular curve (`cir`) centered at the origin
+                            with a radius defined by the parameter `sz`.</p>
+                        <br>
+                        <p>2. **Generate Horizontal Planes**: Use the `HorizontalPlanes` function to create a series of
+                            planes along the circle curve, spaced evenly according to the input count `cnt * 2`.</p>
+                        <br>
+                        <p>3. **Compute Intervals**: Calculate a series of interval values between `x` and `y` using the
+                            `RangeInterval` function, and create a reversed copy of these intervals for symmetric
+                            distribution.</p>
+                        <br>
+                        <p>4. **Handle Odd Count Case**: If the input count `cnt` is odd, adjust the interval list by
+                            removing the last item to ensure symmetry when mirrored.</p>
+                        <br>
+                        <p>5. **Adjust Plane Origins**: Loop through each generated plane and modify the origin points
+                            based on the computed intervals. For every alternate plane, move the origin along its Y-axis
+                            by the corresponding interval value.</p>
+                        <br>
+                        <p>6. **Update Point List**: Store the adjusted origin points of the planes in the list
+                            `plOrigin` for output.</p>
+                        <br>
+                        <p>7. **Set Output Variables**: Assign the computed interval list (`interval`) to output `B` and
+                            the list of modified plane origins (`plOrigin`) to output `A`.</p>
+                        <br>
+                        <p>8. **Define Helper Function `MovePt`**: Implement the `MovePt` function to move a point (`p`)
+                            along a given vector (`v`) by a specified distance (`amp`). This function is used to adjust
+                            the plane origins.</p>
+                        <br>
+                        <p>9. **Define Helper Function `RangeInterval`**: Implement the `RangeInterval` function to
+                            generate a list of evenly spaced values between `x` and `y` over the specified count
+                            (`cnt`). This is used for determining movement distances.</p>
+                        <br>
+                        <p>10. **Define Helper Function `HorizontalPlanes`**: Implement the `HorizontalPlanes` function
+                            to create planes along a curve at specified intervals. This function determines the
+                            orientation and position of each plane based on the curve's tangents.</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--Text-->
+            <div class="col-md-12 work-double-row" style="text-align: center;">
+                <h1 class="hero-tag contact-hero fadeInLeft">Full Scripts</h1>
+            </div>
+
+            <div class="col-md-12 col-sm-12 work-double-row bounceInLeft delay-3s">
+                <div class="work-hero-card-idea">
+                    <a href="https://github.com/bic98/useful_grasshopper_component/blob/main/component%20files/grasshopper_skill/21_Draw%20a%20zigzag%20polygon%20centered%20around%20a%20reference%20circle.gh">
+                        <img class="work-card-hero-img" src="assets/grasshopper_idea/Artboard%2021.png">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 work-double-row bounceInLeft delay-3s">
+                <div class="work-hero-card-idea">
+                    <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/21_script.png"
+                         onclick="openModal(this)">
+                    <h1>version 1</h1>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 work-double-row bounceInLeft delay-3s">
+                <div class="work-hero-card-idea">
+                    <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/21_script2.png"
+                         onclick="openModal(this)">
+                    <h1>version 2</h1>
+                </div>
+            </div>
+
+            <!--text_final-->
+
+            <div class="footer-full  fadeIn delay-2s">
+                <div class="social-icons">
+                    <a target="_blank" href="mailto:bic0893@naver.com"><i class="fas fa-envelope"></i></a>
+                    <a target="_blank" href="https://www.instagram.com/in_chanchan"><i class="fab fa-instagram"></i></a>
+                    <a target="_blank" href="https://blog.naver.com/bic0893"><i class="fab fa-blogger"></i></a>
+                    <a target="_blank" href="https://github.com/bic98"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- 모달 구조 -->
+        <div id="myModal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img class="modal-content" id="img01">
+        </div>
+
+        <script>
+            function openModal(element) {
+                var modal = document.getElementById("myModal");
+                var modalImg = document.getElementById("img01");
+
+                modal.style.display = "block";
+                modalImg.src = element.src; // 클릭한 이미지의 경로를 모달 이미지에 적용
+            }
+
+            function closeModal() {
+                var modal = document.getElementById("myModal");
+                modal.style.display = "none";
+            }
+        </script>
+        <div class="menu-wrap">
+            <input type="checkbox" class="toggler">
+            <div class="hamburger">
+                <div></div>
+            </div>
+            <div class="menu">
+                <div>
+                    <div>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Portfolio</a></li>
+                            <li><a href="#">Parametric Design</a></li>
+                            <li><a disabled href="#" style="text-decoration: line-through;">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>
+ 
