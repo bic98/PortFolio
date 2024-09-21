@@ -1,0 +1,237 @@
+<html>
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-159411627-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-159411627-1');
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=yes">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <title>22_Convert a Mesh object to a Nurbs Surface.gh</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/my_site_logo.ico">
+</head>
+<body id="contact-body" style="overflow-x: hidden;">
+<div>
+    <nav class="nav-desk">
+        <div class="nav-logo">
+
+            <a href="index.html"><img id="logo" src="assets/img/inchanchan.png"></a>
+
+        </div>
+        <div class="nav-items">
+            <ul>
+                <li><span><a href="about.html">About</a></span></li>
+                <li><span><a href="work.html">Work</a></span></li>
+                <li><span><a href="PM.html">Parametric Design</a></span></li>
+                <li><span><a href="Grasshopper_Idea.html"
+                             style="text-decoration: line-through;">Grasshopper Idea</a></span></li>
+                <li><span><a href="contact.html">Contact</a></span></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--Content-->
+    <div class="animated bounceInUp delay-1s">
+        <div class="row" id="work-row">
+            <!--Text-->
+            <div class="row work-double-row">
+                <div class="col-md-12" id="left-hero-card-idea">
+                    <h2 class="hero-tag contact-hero-idea  fadeInLeft">22_Convert a Mesh object to a Nurbs
+                        Surface.gh</h2>
+                    <p class="hero-des contact-des  fadeIn delay-1s">
+                        <b>Key Ideas:</b>
+                        <br><br>
+                        A simple mesh is easy to make surface using patch function
+                        <br><br>
+
+                    </p>
+                </div>
+            </div>
+            <!--text_final-->
+
+            <!--panel-->
+            <div class="row work-double-row">
+                <!--key idea text-->
+                <div class="col-md-12" id="left-hero-card-idea">
+                    <h2 class="hero-tag contact-hero-key-idea fadeInLeft">Key Idea 1 : A simple mesh is easy to make
+                        surface using patch function</h2>
+                </div>
+                <!--key idea text_final-->
+
+                <!--key idea img-->
+
+                <div class="col-md-6 col-sm-12 bounceInLeft delay-3s">
+                    <div class="work-hero-card-idea">
+                        <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/22_idea1_1.png"
+                             onclick="openModal(this)">
+                        <h1>you can put the Geometry in C (like curves, points)</h1>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6 col-sm-12 bounceInLeft delay-3s">
+                    <div class="work-hero-card-idea">
+                        <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/22_idea1.png"
+                             onclick="openModal(this)">
+                        <h1>A surface containing the rectangle that includes the point or curve is formed.</h1>
+                    </div>
+                </div>
+
+
+                <!--key idea img_final-->
+            </div>
+            <!--panel_final-->
+
+            <div class="row work-double-row">
+                <!--key idea text-->
+                <div class="col-md-12" id="left-hero-card-idea">
+                    <h2 class="hero-tag contact-hero-key-idea fadeInLeft">C# Code Implementation</h2>
+                </div>
+                <!--key idea text_final-->
+                <div class="col-md-6 col-sm-12 bounceInLeft delay-3s">
+                    <div class="description">
+                        <p><strong>C# Code:</strong></p>
+                        <pre style="background-color:#2b2b2b; color:#a9b7c6; padding: 10px; border-radius: 5px;">
+<span style="color:#ffc66d;">private void</span> RunScript(Mesh mesh, <span style="color:#cc7832;">int</span> span, ref object srf)
+{
+    <span style="color:#808080;">// Initialize a list to store all edges of the mesh as curves</span>
+    List&lt;Curve&gt; crvs = <span style="color:#cc7832;">new</span> List&lt;Curve&gt;();
+    <span style="color:#cc7832;">var</span> allEdges = mesh.TopologyEdges;
+    List&lt;Curve&gt; ret = <span style="color:#cc7832;">new</span> List&lt;Curve&gt;();
+
+    <span style="color:#808080;">// Convert each mesh edge to a NURBS curve and add it to the list</span>
+    <span style="color:#cc7832;">for</span> (<span style="color:#cc7832;">int</span> i = <span
+                                style="color:#6897bb;">0</span>; i &lt; allEdges.Count; i++)
+    {
+        ret.Add(allEdges.EdgeLine(i).ToNurbsCurve());
+    }
+
+    <span style="color:#808080;">// Join all naked edges of the mesh into a single curve</span>
+    <span style="color:#cc7832;">var</span> nakedEdges = Curve.JoinCurves(mesh.GetNakedEdges().Select(x => x.ToNurbsCurve()))[<span
+                                style="color:#6897bb;">0</span>];
+
+    <span style="color:#808080;">// Create a patch surface from the mesh edges</span>
+    Brep untrimSrf = Brep.CreatePatch(ret, span, span, <span style="color:#6897bb;">0.001</span>);
+
+    <span style="color:#808080;">// Project the naked edge curve onto the patch surface</span>
+    <span style="color:#cc7832;">var</span> pullNakedEdges = nakedEdges.PullToBrepFace(untrimSrf.Faces[<span
+                                style="color:#6897bb;">0</span>], <span style="color:#6897bb;">0.001</span>);
+
+    <span style="color:#808080;">// Split the patch surface using the projected curves</span>
+    <span style="color:#cc7832;">var</span> trimSrf = untrimSrf.Split(pullNakedEdges, <span
+                                style="color:#6897bb;">0.001</span>);
+
+    <span style="color:#808080;">// Set the last split surface face as the output</span>
+    srf = trimSrf.Last();
+}
+            </pre>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12 bounceInLeft delay-3s">
+                    <div class="work-hero-card-idea">
+                        <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/22_script.png"
+                             onclick="openModal(this)">
+                        <h1>C# Script Code</h1>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--Text-->
+            <div class="col-md-12 work-double-row" style="text-align: center;">
+                <h1 class="hero-tag contact-hero fadeInLeft">Full Scripts</h1>
+            </div>
+
+            <div class="col-md-12 col-sm-12 work-double-row bounceInLeft delay-3s">
+                <div class="work-hero-card-idea">
+                    <a href="https://github.com/bic98/useful_grasshopper_component/blob/main/component%20files/grasshopper_skill/22_Convert%20a%20Mesh%20object%20to%20a%20Nurbs%20Surface.gh">
+                        <img class="work-card-hero-img" src="assets/grasshopper_idea/Artboard%2022.png">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 work-double-row bounceInLeft delay-3s">
+                <div class="work-hero-card-idea">
+                    <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/22_script.png"
+                         onclick="openModal(this)">
+                    <h1>version 1</h1>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 work-double-row bounceInLeft delay-3s">
+                <div class="work-hero-card-idea">
+                    <img class="work-card-hero-img" src="assets/grasshopper_idea/detail/22_script2.png"
+                         onclick="openModal(this)">
+                    <h1>version 2</h1>
+                </div>
+            </div>
+
+            <!--text_final-->
+
+            <div class="footer-full  fadeIn delay-2s">
+                <div class="social-icons">
+                    <a target="_blank" href="mailto:bic0893@naver.com"><i class="fas fa-envelope"></i></a>
+                    <a target="_blank" href="https://www.instagram.com/in_chanchan"><i class="fab fa-instagram"></i></a>
+                    <a target="_blank" href="https://blog.naver.com/bic0893"><i class="fab fa-blogger"></i></a>
+                    <a target="_blank" href="https://github.com/bic98"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- 모달 구조 -->
+        <div id="myModal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img class="modal-content" id="img01">
+        </div>
+
+        <script>
+            function openModal(element) {
+                var modal = document.getElementById("myModal");
+                var modalImg = document.getElementById("img01");
+
+                modal.style.display = "block";
+                modalImg.src = element.src; // 클릭한 이미지의 경로를 모달 이미지에 적용
+            }
+
+            function closeModal() {
+                var modal = document.getElementById("myModal");
+                modal.style.display = "none";
+            }
+        </script>
+        <div class="menu-wrap">
+            <input type="checkbox" class="toggler">
+            <div class="hamburger">
+                <div></div>
+            </div>
+            <div class="menu">
+                <div>
+                    <div>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Portfolio</a></li>
+                            <li><a href="#">Parametric Design</a></li>
+                            <li><a disabled href="#" style="text-decoration: line-through;">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>
+ 
